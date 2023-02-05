@@ -55,7 +55,7 @@
                             <a href="#contact" class="btn hire-me"> Hire Me</a>
                         </div>
                         <div class="home-img padd-15">
-                            <img src="bhavin1.JPG" alt="">
+                            <img src="bhavin.JPG" alt="">
                         </div>
                     </div>
                 </div>
