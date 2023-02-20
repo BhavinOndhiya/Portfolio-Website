@@ -55,7 +55,7 @@
                             <a href="#contact" class="btn hire-me"> Hire Me</a>
                         </div>
                         <div class="home-img padd-15">
-                            <img src="bhavin1.JPG" alt="">
+                            <img src="bhavin.JPG" alt="">
                         </div>
                     </div>
                 </div>
@@ -188,37 +188,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="experience padd-15 ">
-                                    <h3 class="title ">Experience</h3>
+                            </div>
+                            <div class="row ">
+                                <div class="education padd-15 ">
+                                    <h3 class="title ">Education</h3>
                                     <div class="row ">
                                         <div class="timeline-box padd-15 ">
                                             <div class="timeline shadow-dark ">
-                                                <!-- ===== timeline item ===== -->
+                                                 ===== timeline item ===== 
                                                 <div class="timeline-item ">
                                                     <div class="circle-dot "></div>
                                                     <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 2022,march 26
+                                                        <i class="fa fa-calendar "></i> 2021 - 2025
                                                     </h3>
-                                                    <h4 class="timeline-title ">Made my first portfolio website</h4>
-                                                    <p class="timeline-text ">By making these website i am now very familiar with html,css and javascript and also i can easily create frontend for nay websites in frontend.</p>
+                                                    <h4 class="timeline-title ">Undergraduate in Computer Engineering</h4>
+                                                    <p class="timeline-text ">I am currently Pursuing My B-Tech In Computer Engineering at CHARUSAT University,Nadiad</p>
+                                                </div>
+                                                <!-- ===== timeline item ===== ---->
+                                                <div class="timeline-item ">
+                                                    <div class="circle-dot "></div>
+                                                    <h3 class="timeline-date ">
+                                                        <i class="fa fa-calendar "></i> 2019 - 2021
+                                                    </h3>
+                                                    <h4 class="timeline-title ">Shakti Secondary School Rajkot</h4>
+                                                    <p class="timeline-text ">Here , i pursued my eleventh and twelth science with my enormous efforts and cleared it with flying colours</p>
                                                 </div>
                                                 <!-- ===== timeline item ===== -->
                                                 <div class="timeline-item ">
                                                     <div class="circle-dot "></div>
                                                     <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 2022,September 27
+                                                        <i class="fa fa-calendar "></i> 2008 - 2019
                                                     </h3>
-                                                    <h4 class="timeline-title ">Jadeja Tuition Site</h4>
-                                                    <p class="timeline-text ">Now after succesfully learning frontend i learnt about backend in PHP and created these tuition site with full stack web development.</p>
-                                                </div>
-                                                <!-- ===== timeline item ===== -->
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 2022,November
-                                                    </h3>
-                                                    <h4 class="timeline-title ">DDO COmplaint Registration,Patan</h4>
-                                                    <p class="timeline-text ">In these we worked in group of 8 peoples where we created an complaint registration website where i have done the backend of whole website along with storing data of login-signup along with the responses we get from a chatbot and much more... along with three different admin panels,</p>
+                                                    <h4 class="timeline-title ">St Mary's School</h4>
+                                                    <p class="timeline-text ">I completed my primary and high school education in st marys school,Gondal</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -424,6 +426,7 @@
                     <h3 class="contact-title padd-15 ">SEND ME AN EMAIL</h3>
                     <h4 class="contact-sub-title padd-15 ">I'M VERY RESPOSIVE TO MESSAGES</h4>
                     <!-- ====== Contact Form ====== -->
+                    <?php include 'mails.php';?>
                     <form action="https://formsubmit.io/send/bhavinondhiya0@gmail.com" method="POST">
                         <div class="row ">
                             <div class="contact-form padd-15 ">
@@ -456,10 +459,9 @@
                                 <div class="row ">
                                     <div class="form-item col-12 padd-15 ">
                                         <button type="submit" name="submit" class="btn ">Send Message</button>
+                                        <input type="hidden" name="_autoresponse" value="Thankyou For Contacting Mr.Bhavin Ondhiya || We will get back to you soon.">
+                                        <input type="hidden" name="_next" value="https://bhavinthankyou.netlify.app/Thankyou.html">
                                     </div>
-                                    <!-- <input type="hidden" name="_captcha" value="false">
-                                    <input type="hidden" name="_template" value="table"> -->
-                                </div>
                             </div>
                         </div>
                     </form>
