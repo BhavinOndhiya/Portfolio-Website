@@ -16,6 +16,18 @@
     <link rel="stylesheet" href="color5.css" class="alternate-style" title="color-5" disabled>
     <link rel="stylesheet" href="styleswitcher.css">
     <script src="https://kit.fontawesome.com/ce70c5e939.js" crossorigin="anonymous"></script>
+
+     <!-- Circular profile image as favicon -->
+     <link rel="icon" href="bhavin.jpg" type="image/png">
+     <style>
+         /* Inline CSS for circular image */
+         .circle-image {
+             width: 32px;
+             height: 32px;
+             border-radius: 50%;
+             object-fit: cover;
+         }
+     </style>
 </head>
 <body>
     <!-- ===== Main Container Start ===== -->
@@ -59,7 +71,7 @@
             </section>
          <!--===== Home Section End ===== -->
          <!-- ===== About Section Start ===== -->
-            <section class="about section" id="about">
+            <section class="about section" id="about" hidden>
                 <div class=" container ">
                     <div class="row ">
                         <div class="section-title padd-15 ">
@@ -214,7 +226,10 @@
                                                     </h3>
                                                     <h4 class="timeline-text ">Jadeja Tuition Site</h4>
                                                     <p class="timeline-text ">Now after succesfully learning frontend i learnt about backend in PHP and created these tuition site with full stack web development</p>
+                                                    <div class="formitems col-12 padd-15 ">
+                                                        </div>
                                                 </div>
+
                                                 <!-- ===== timeline item ===== -->
                                                 <div class="timeline-item ">
                                                     <div class="circle-dot "></div>
@@ -223,46 +238,65 @@
                                                     </h3>
                                                     <h4 class="timeline-text ">DDO Complaint Register System, Patan</h4>
                                                     <p class="timeline-text ">In these we worked in group of 8 peoples where we created an complaint registration website where i have done the backend of whole website along with storing data of login-signup along with the responses we get from a chatbot and much more... along with three different admin panels</p>
+                                                    <div class="formitems col-12 padd-15 ">
+                                                        </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="education padd-15 ">
-                                    <h3 class="title ">Experience</h3>
-                                    <div class="row ">
-                                        <div class="timeline-box padd-15 ">
-                                            <div class="timeline shadow-dark ">
-                                                 
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> March 2023- April 2023
+                                <div class="education padd-15">
+                                    <h3 class="title">Experience</h3>
+                                    <div class="row">
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">
+                                
+                                                <!-- Oasis Infobyte - March 2023 to April 2023 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> March 2023 - April 2023(2 Months)
                                                     </h3>
-                                                    <h4 class="timeline-text ">Oasis Infobyte</h4>
-                                                    <p class="timeline-text ">In these Internship i grasped knowledge about javascript and also made few applications using DOM</p>
-                                                    br
-                                                    <div class="formitems col-12 padd-15 ">
+                                                    <h4 class="timeline-text">Oasis Infobyte (Web-Development)</h4>
+                                                    <p class="timeline-text">In this internship, I grasped knowledge about JavaScript and also made a few applications using DOM.</p>
+                                
+                                                    <div class="formitems col-12 padd-15">
                                                         <button type="submit" name="submit" class="btn" style="cursor: pointer;" onclick="window.open('https://drive.google.com/file/d/1pROftAt_23XuH7RFGM9hI4mMLyj9WrhD/view?usp=sharing', '_blank')">Certificate</button>
-                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> May 2023 (Present)
+                                                <!-- Graphbud Technologies - May 2023 to November 2023 -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> May 2023 - November 2023 (6 Months)
                                                     </h3>
-                                                    <h4 class="timeline-text ">Graphbud Technologies</h4>
-                                                    <p class="timeline-text ">In these internship i am working as a backend developer and exploring tech stakcs like nodejs,docker,localstack,graphql,neo4j,cypher query language
-                                                    </p>
+                                                    <h4 class="timeline-text">Graphbud Technologies (Backend-Developer)</h4>
+                                                    <p class="timeline-text">During this internship, I worked as a backend developer, exploring technologies like Node.js, Docker, LocalStack, GraphQL, Neo4j, Cypher Query Language.</p>
                                                     <br>
-                                                    <div class="formitems col-12 padd-15 ">
+                                                    <div class="formitems col-12 padd-15">
                                                         <button type="submit" name="submit" class="btn" style="cursor: pointer;" onclick="window.open('https://drive.google.com/drive/folders/1z2ca71cA8dUHzJT3QBAiqfgqjlXMdHjh?usp=sharing','_blank')">Certificate</button>
                                                     </div>
                                                 </div>
+                                
+                                                <!-- Graphbud Technologies - December 2023 onwards (Full-Stack Development) -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> December 2023 - Ongoing
+                                                    </h3>
+                                                    <h4 class="timeline-text">Graphbud Technologies (Full-Stack Development)</h4>
+                                                    <p class="timeline-text">Continuing with Graphbud Technologies, I transitioned into full-stack development, further enhancing my skills across both frontend and backend technologies.</p>
+                                                    <br>
+                                                    <div class="formitems col-12 padd-15">
+                                                        <button type="submit" name="submit" class="btn" style="cursor: pointer;" onclick="window.open('https://drive.google.com/drive/folders/1z2ca71cA8dUHzJT3QBAiqfgqjlXMdHjh?usp=sharing','_blank')">Certificate</button>
+                                                    </div>
+                                                </div>
+                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -349,76 +383,117 @@
             </section>
             <!-- ===== Services Section End ===== -->
             <!-- ===== Portfolio Section Start ===== -->
-            <section class="portfolio section " id="portfolio">
-                <div class="container ">
-                    <div class="row ">
-                        <div class="section-title padd-15 ">
-                            <h2>Portfolio</h2>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="portfolio-heading padd-15 ">
-                            <h2>My Last Projects :</h2>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <!-- ====== portfolio item start ====== -->
-                        <div class="portfolio-item padd-15 ">
-                            <div class="portfolio-item-inner shadow-dark ">
-                                <div class="portfolio-img ">
-                                    <img src="img123.png" alt=" ">
+                    <section>
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                            }
+
+                            .modal {
+                                display: none;
+                                position: fixed;
+                                z-index: 1;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                                overflow: auto;
+                                background-color: rgba(0, 0, 0, 0.9);
+                            }
+
+                            .modal-content {
+                                position: relative;
+                                margin: auto;
+                                padding: 20px;
+                                width: 80%;
+                                max-width: 800px;
+                            }
+
+                            .close {
+                                position: absolute;
+                                top: 10px;
+                                right: 15px;
+                                color: #fff;
+                                font-size: 30px;
+                                font-weight: bold;
+                                cursor: pointer;
+                            }
+
+                            .portfolio-item {
+                                cursor: pointer;
+                            }
+
+                            .portfolio-item:hover .portfolio-popup {
+                                opacity: 1;
+                            }
+
+                            .portfolio-popup {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                text-align: center;
+                                opacity: 0;
+                                transition: opacity 0.3s;
+                            }
+
+                            .portfolio-popup a {
+                                color: #fff;
+                                text-decoration: none;
+                                font-size: 16px;
+                            }
+
+                            .portfolio-popup a:hover {
+                                text-decoration: underline;
+                            }
+                        </style>
+                        <title>Lightbox Gallery</title>
+                    </head>
+                    <body>
+                        <section class="portfolio section" id="portfolio">
+                            <div class="container">
+                                <!-- Your portfolio items -->
+                                <div class="row">
+                                    <div class="portfolio-item padd-15"  onclick="openLightbox('Project 1', 'https://beta.datagrafi.co')">
+                                        <div class="portfolio-item-inner shadow-dark">
+                                            <div class="portfolio-img">
+                                                <img src="img123.png" alt="">
+                                            </div>
+                                            <div class="portfolio-popup">
+                                                <a href="#">View Project</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Add similar structure for other portfolio items -->
                                 </div>
                             </div>
-                        </div>
-                        <!-- ====== portfolio item End ====== -->
-                        <!-- ====== portfolio item start ====== -->
-                        <div class="portfolio-item padd-15 ">
-                            <div class="portfolio-item-inner shadow-dark ">
-                                <div class="portfolio-img ">
-                                    <img src="img123.png" alt=" ">
-                                </div>
+                        </section>
+
+                        <!-- Lightbox Modal -->
+                        <div id="lightboxModal" class="modal">
+                            <span class="close" onclick="closeLightbox()">&times;</span>
+                            <div class="modal-content">
+                                <h2 id="projectTitle"></h2>
+                                <iframe id="projectIframe" width="100%" height="600px" frameborder="0"></iframe>
                             </div>
                         </div>
-                        <!-- ====== portfolio item End ====== -->
-                        <!-- ====== portfolio item start ====== -->
-                        <div class="portfolio-item padd-15 ">
-                            <div class="portfolio-item-inner shadow-dark ">
-                                <div class="portfolio-img ">
-                                    <img src="img123.png" alt=" ">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ====== portfolio item End ====== -->
-                        <!-- ====== portfolio item start ====== -->
-                        <div class="portfolio-item padd-15 ">
-                            <div class="portfolio-item-inner shadow-dark ">
-                                <div class="portfolio-img ">
-                                    <img src="img123.png" alt=" ">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ====== portfolio item End ====== -->
-                        <!-- ====== portfolio item start ====== -->
-                        <div class="portfolio-item padd-15 ">
-                            <div class="portfolio-item-inner shadow-dark ">
-                                <div class="portfolio-img ">
-                                    <img src="img123.png" alt=" ">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ====== portfolio item End ====== -->
-                        <!-- ====== portfolio item start ====== -->
-                        <div class="portfolio-item padd-15 ">
-                            <div class="portfolio-item-inner shadow-dark ">
-                                <div class="portfolio-img ">
-                                    <img src="img123.png" alt=" ">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ====== portfolio item End ====== -->
-                    </div>
-                </div>
-            </section>
+
+                        <script>
+                            function openLightbox(projectTitle, projectLink) {
+                                document.getElementById('projectTitle').innerText = projectTitle;
+                                document.getElementById('projectIframe').src = projectLink;
+                                document.getElementById('lightboxModal').style.display = 'block';
+                            }
+
+                            function closeLightbox() {
+                                document.getElementById('projectTitle').innerText = '';
+                                document.getElementById('projectIframe').src = '';
+                                document.getElementById('lightboxModal').style.display = 'none';
+                            }
+                        </script>
+                    </body>
+                </section>
+
             <!-- ===== Portfolio Section End ===== -->
             <!-- ===== Contact Section Start ===== -->
             <section class="contact section " id="contact">
@@ -503,6 +578,27 @@
             </section>
             <!-- ===== Contact Section End ===== -->
         </div>
+        
+    <!--Footer-->
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="https://your-blog-link.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-rss"></i>
+                </a>
+                <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-code"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
         <!-- ===== Main Content End ===== -->
     </div>
     <!-- ===== Main Container End ===== -->
@@ -530,5 +626,6 @@
     <script src="style-switcher.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js ">
     </script>
+
 </body>
 </html>
