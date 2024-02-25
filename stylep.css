@@ -646,6 +646,13 @@ h3.my-profession {
     display: block;
 } */
 
+.portfolio-title {
+    color: var(--skin-color);
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
 
 /* Contact */
 
