@@ -40,7 +40,17 @@ ul {
     list-style: none;
 }
 
+/* Add this to your existing CSS */
+html {
+    scroll-behavior: smooth;
+}
+
+.nav li a.active {
+    color: var(--skin-color); /* Change this to your active color */
+}
+
 .section {
+    
     background: var(--bg-black-900);
     min-height: 100vh;
     display: block;

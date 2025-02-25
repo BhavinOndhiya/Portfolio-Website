@@ -16,19 +16,27 @@
     <link rel="stylesheet" href="color5.css" class="alternate-style" title="color-5" disabled>
     <link rel="stylesheet" href="styleswitcher.css">
     <script src="https://kit.fontawesome.com/ce70c5e939.js" crossorigin="anonymous"></script>
-
-     <!-- Circular profile image as favicon -->
-     <link rel="icon" href="bhavin.jpg" type="image/png">
-     <link rel="icon" href="bhavin.png" type="image/png">
-     <style>
-         /* Inline CSS for circular image */
-         .circle-image {
-             width: 32px;
-             height: 32px;
-             border-radius: 50%;
-             object-fit: cover;
-         }
-     </style>
+    <!-- Circular profile image as favicon -->
+    <link rel="icon" href="bhavin.jpg" type="image/png">
+    <link rel="icon" href="bhavin.png" type="image/png">
+    <style>
+        /* Inline CSS for circular image */
+        .circle-image {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .horizontal-sections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .horizontal-sections > div {
+            flex: 1;
+            min-width: 300px;
+        }
+    </style>
 </head>
 <body>
     <!-- ===== Main Container Start ===== -->
@@ -44,9 +52,9 @@
             <ul class="nav">
                 <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
-                <li><a href="#services"><i class="fa fa-list"></i>Services</a></li>
-                <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
-                <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+                <li><a href="#services"><i class="fa fa-list"></i> Services</a></li>
+                <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
             </ul>
         </div>
         <!-- ===== Aside End ===== -->
@@ -58,11 +66,10 @@
                     <div class="row">
                         <div class="home-info padd-15">
                             <h3 class="hello">Hello, my name is <span class="name">Bhavin Ondhiya</span></h3>
-                            <h3 class="my-profession">I' m a <span class="typing">web designer</span></h3>
-                            <p>Bhavin Ondhiya, ML and AI enthusiast, a dedicated software engineer who loves to work towards project that makes a bigger impact in the society, You will also find me playing with guitar on some days and exploring places , learning in the process is my
-                                belief.</p>
+                            <h3 class="my-profession">I'm a <span class="typing">web designer</span></h3>
+                            <p>Bhavin Ondhiya, ML and AI enthusiast, a dedicated software engineer who loves to work towards projects that make a bigger impact in society. You will also find me playing with a guitar on some days and exploring places. Learning in the process is my belief.</p>
                             <a href="/BhavinOndhiya-june-2.pdf" class="btn">Download CV</a>
-                            <a href="#contact" class="btn hire-me"> Hire Me</a>
+                            <a href="#contact" class="btn hire-me">Hire Me</a>
                         </div>
                         <div class="home-img padd-15">
                             <img src="bhavin.JPG" alt="">
@@ -70,328 +77,282 @@
                     </div>
                 </div>
             </section>
-         <!--===== Home Section End ===== -->
-         <!-- ===== About Section Start ===== -->
-            <section class="about section" id="about" hidden>
-                <div class=" container ">
-                    <div class="row ">
-                        <div class="section-title padd-15 ">
+            <!-- ===== Home Section End ===== -->
+
+            <!-- ===== About Section Start ===== -->
+            <section class="about section" id="about" >
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
                             <h2>About Me</h2>
                         </div>
                     </div>
-                    <div class="row ">
-                        <div class="about-content padd-15 ">
-                            <div class="row ">
-                                <div class="about-text padd-15 ">
+                    <div class="row">
+                        <div class="about-content padd-15">
+                            <div class="row">
+                                <div class="about-text padd-15">
                                     <h3>I'm Bhavin Ondhiya || <span> a Web Developer</span></h3>
-                                    <p>I'm enthusiastic about learning and exploring. Turning my hobby of project development into a skill, I've become proficient in Node.js, Docker, AWS, and GraphQL. Currently advancing with MERN stack, I've worked with a stipend-based internship, further enriching my journey.</p>
+                                    <p>I'm enthusiastic about learning and exploring. Turning my hobby of project development into a skill, I've become proficient in Node.js, Docker, AWS, and GraphQL. Currently advancing with MERN stack, I've worked with a stipend-based internship, further enriching my journey.</p>
                                 </div>
                             </div>
-                            <div class="row ">
-                                <div class="personal-info padd-15 ">
-                                    <div class="row ">
-                                        <div class="info-item padd-15 ">
-                                            <p>Birthday : <span>29 jan 2003</span></p>
+                            <div class="row">
+                                <div class="personal-info padd-15">
+                                    <div class="row">
+                                        <div class="info-item padd-15">
+                                            <p>Birthday : <span>29 Jan 2003</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>Age : <span>20</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>Website : <span>-</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>Email : <span>bhavinondhiya0@gmail.com</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>Degree : <span>CE</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>Phone : <span>+91 99984 89403</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>City : <span>Ahemdabad</span></p>
                                         </div>
-                                        <div class="info-item padd-15 ">
+                                        <div class="info-item padd-15">
                                             <p>Freelance : <span>Available</span></p>
                                         </div>
                                     </div>
-                                    <div class="row ">
-                                        <div class="buttons padd-15 ">
-                                            <a href="#contact " data-section-index="1 " class="btn hire-me ">Hire Me</a>
+                                    <div class="row">
+                                        <div class="buttons padd-15">
+                                            <a href="#contact" data-section-index="1" class="btn hire-me">Hire Me</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="skills padd-15 ">
-                                    <div class="row ">
-                                        <div class="skill-item padd-15 ">
+                                <div class="skills padd-15">
+                                    <div class="row">
+                                        <div class="skill-item padd-15">
                                             <h5>JS</h5>
-                                            <div class="progress ">
-                                                <div class="progress-in " style="width: 86%; "></div>
-                                                <div class="skill-percent ">86%</div>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 86%;"></div>
+                                                <div class="skill-percent">86%</div>
                                             </div>
                                         </div>
-                                         <div class="skill-item padd-15 ">
+                                        <div class="skill-item padd-15">
                                             <h5>Docker</h5>
-                                            <div class="progress ">
-                                                <div class="progress-in " style="width: 50%; "></div>
-                                                <div class="skill-percent ">50%</div>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 50%;"></div>
+                                                <div class="skill-percent">50%</div>
                                             </div>
                                         </div>
-                                        <div class="skill-item padd-15 ">
+                                        <div class="skill-item padd-15">
                                             <h5>PHP</h5>
-                                            <div class="progress ">
-                                                <div class="progress-in " style="width: 90%; "></div>
-                                                <div class="skill-percent ">90%</div>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 90%;"></div>
+                                                <div class="skill-percent">90%</div>
                                             </div>
                                         </div>
-                                        <div class="skill-item padd-15 ">
+                                        <div class="skill-item padd-15">
                                             <h5>GraphQL</h5>
-                                            <div class="progress ">
-                                                <div class="progress-in " style="width: 70%; "></div>
-                                                <div class="skill-percent ">70%</div>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 70%;"></div>
+                                                <div class="skill-percent">70%</div>
                                             </div>
                                         </div>
-                                        <div class="skill-item padd-15 ">
+                                        <div class="skill-item padd-15">
                                             <h5>AWS</h5>
-                                            <div class="progress ">
-                                                <div class="progress-in " style="width: 25%; "></div>
-                                                <div class="skill-percent ">25%</div>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 25%;"></div>
+                                                <div class="skill-percent">25%</div>
                                             </div>
                                         </div>
-                                        <div class="skill-item padd-15 ">
+                                        <div class="skill-item padd-15">
                                             <h5>NodeJS</h5>
-                                            <div class="progress ">
-                                                <div class="progress-in " style="width: 40%; "></div>
-                                                <div class="skill-percent ">40%</div>
+                                            <div class="progress">
+                                                <div class="progress-in" style="width: 40%;"></div>
+                                                <div class="skill-percent">40%</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ">
-                                <div class="education padd-15 ">
-                                    <!-- <h3 class="title ">Education</h3> -->
-                                    <div class="row ">
-                                        <div class="section-title padd-15 ">
-                                            <h2 class="title">Education</h2>
-                                        </div>
-                                        <div class="timeline-box padd-15 ">
-                                            <div class="timeline shadow-dark ">
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 2021 - 2025
-                                                    </h3>
-                                                    <h4 class="timeline-text ">Undergraduate in Computer Engineering</h4>
-                                                    <p class="timeline-text ">I am currently pursuing My B-Tech In Computer Engineering at CHARUSAT University,Nadiad.</p>
-                                                </div>
-                                                <!-- ===== timeline item ===== ---->
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 2019 - 2021
-                                                    </h3>
-                                                    <h4 class="timeline-text ">Shakti Secondary School Rajkot</h4>
-                                                    <p class="timeline-text ">I successfully completed my 11th and 12th grade in the science stream, demonstrating dedicated efforts and achieving exceptional results.</p>
-                                                </div>
-                                                <!-- ===== timeline item ===== -->
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 2008 - 2019
-                                                    </h3>
-                                                    <h4 class="timeline-text ">St Mary's School</h4>
-                                                    <p class="timeline-text ">I completed my primary and high school education in St. Mary's School,Gondal.</p>
+                            <div class="row">
+                                <div class="horizontal-sections">
+                                    <div class="education padd-15">
+                                        <div class="row">
+                                            <div class="section-title padd-15">
+                                                <h2 class="title">Education</h2>
+                                            </div>
+                                            <div class="timeline-box padd-15">
+                                                <div class="timeline shadow-dark">
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i> 2021 - 2025
+                                                        </h3>
+                                                        <h4 class="timeline-text">Undergraduate in Computer Engineering</h4>
+                                                        <p class="timeline-text">I am currently pursuing my B-Tech in Computer Engineering at CHARUSAT University, Nadiad.</p>
+                                                    </div>
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i> 2019 - 2021
+                                                        </h3>
+                                                        <h4 class="timeline-text">Shakti Secondary School Rajkot</h4>
+                                                        <p class="timeline-text">I successfully completed my 11th and 12th grade in the science stream, demonstrating dedicated efforts and achieving exceptional results.</p>
+                                                    </div>
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i> 2008 - 2019
+                                                        </h3>
+                                                        <h4 class="timeline-text">St Mary's School</h4>
+                                                        <p class="timeline-text">I completed my primary and high school education in St. Mary's School, Gondal.</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row ">
-                                <div class="education padd-15 ">
-                                    <!-- <h3 class="title ">Projects</h3> -->
-                                    <div class="row ">
-                                        <div class="section-title padd-15 ">
-                                            <h2 class="title">Projects</h2>
-                                        </div>
-                                        <div class="timeline-box padd-15 ">
-                                            <div class="timeline shadow-dark ">
-                                                 
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 27 September,2022
-                                                    </h3>
-                                                    <h4 class="timeline-text ">Made my Personal Portfolio Website</h4>
-                                                    <p class="timeline-text ">Skilled in HTML, CSS, and JavaScript, adept at crafting engaging front-end experiences for diverse websites by leveraging my solid understanding of web technologies and design principles.</p>
-                                                </div>
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 13 November,2022
-                                                    </h3>
-                                                    <h4 class="timeline-text ">Jadeja Tuition Site</h4>
-                                                    <p class="timeline-text ">Now after succesfully learning frontend i learnt about backend in PHP and created these tuition site with full stack web development</p>
-                                                    <div class="formitems col-12 padd-15 ">
-                                                        </div>
-
-
-                                                    <p class="timeline-text ">Now after succesfully learning frontend I learnt about backend in PHP and created these tuition site with Full Stack Web Development.</p>
-
-                                                </div>
-
-                                                <!-- ===== timeline item ===== -->
-                                                <div class="timeline-item ">
-                                                    <div class="circle-dot "></div>
-                                                    <h3 class="timeline-date ">
-                                                        <i class="fa fa-calendar "></i> 29 January,2023
-                                                    </h3>
-                                                    <h4 class="timeline-text ">DDO Complaint Register System, Patan</h4>
-                                                    <p class="timeline-text ">In these we worked in group of 8 peoples where we created an complaint registration website where i have done the backend of whole website along with storing data of login-signup along with the responses we get from a chatbot and much more... along with three different admin panels</p>
-                                                    <div class="formitems col-12 padd-15 ">
-                                                        </div>
-
-
-                                                    <p class="timeline-text ">Collaborated within an 8-member team to develop a comprehensive complaint registration website. Led backend development, encompassing user authentication, chatbot interaction, data storage, and the implementation of three distinct admin panels, showcasing proficiency in full-stack contributions and complex system design.</p>
-
+                                    <div class="projects padd-15">
+                                        <div class="row">
+                                            <div class="section-title padd-15">
+                                                <h2 class="title">Projects</h2>
+                                            </div>
+                                            <div class="timeline-box padd-15">
+                                                <div class="timeline shadow-dark">
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i> 27 September, 2022
+                                                        </h3>
+                                                        <h4 class="timeline-text">Made my Personal Portfolio Website</h4>
+                                                        <p class="timeline-text">Skilled in HTML, CSS, and JavaScript, adept at crafting engaging front-end experiences for diverse websites by leveraging my solid understanding of web technologies and design principles.</p>
+                                                    </div>
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i> 13 November, 2022
+                                                        </h3>
+                                                        <h4 class="timeline-text">Blog Byte</h4>
+                                                        <p class="timeline-text">Now after successfully learning frontend, I tried making my own Next.js blog site where I post about my learnings in Next.js and React.js.</p>
+                                                    </div>
+                                                    <div class="timeline-item">
+                                                        <div class="circle-dot"></div>
+                                                        <h3 class="timeline-date">
+                                                            <i class="fa fa-calendar"></i> 29 January, 2023
+                                                        </h3>
+                                                        <h4 class="timeline-text">MCC Chatbot</h4>
+                                                        <p class="timeline-text">Showcasing proficiency in full-stack development, cloud-based services, and complex system design.</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="education padd-15">
+                                    <div class="row">
+                                        <div class="section-title padd-15">
+                                            <h2 class="title">Experience</h2>
+                                        </div>
+                                        <div class="timeline-box padd-15">
+                                            <div class="timeline shadow-dark">                                                
+                                                <!-- New timeline item for Software Developer at ScaleCapacity -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> Sep 2024 - Present
+                                                    </h3>
+                                                    <h4 class="timeline-text">Software Developer Internship</h4>
+                                                    <p class="timeline-text">ScaleCapacity - California, United States - Remote</p>
+                                                    <p class="timeline-text">Developed a chatbot using AWS Lex, creating intents for user interactions and managing bot aliases for version control. Integrated Lambda functions to execute backend logic and fetch data dynamically, enhancing the bot's capabilities.</p>
+                                                </div>
                                     
-                <div class="section-title padd-15 ">
-                    <h2 class="title">Experience</h2>
-                </div>
-    <!-- <h3 class="title">Experience</h3> -->
-    <div class="row">
-        <div class="timeline-box padd-15">
-            <div class="timeline shadow-dark">
+                                                <!-- New timeline item for Full Stack Developer at GraphBud Technologies -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> Nov 2023 - May 2024
+                                                    </h3>
+                                                    <h4 class="timeline-text">Full Stack Developer</h4>
+                                                    <p class="timeline-text">GraphBud Technologies Private Limited - Pollachi, Tamil Nadu, India - Remote</p>
+                                                </div>
+                                    
+                                                <!-- New timeline item for Back End Developer at GraphBud Technologies -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> May 2023 - Oct 2023
+                                                    </h3>
+                                                    <h4 class="timeline-text">Back End Developer</h4>
+                                                    <p class="timeline-text">GraphBud Technologies Private Limited - Pollachi, Tamil Nadu, India</p>
+                                                </div>
+                                    
+                                                <!-- New timeline item for Web Developer Internship at Oasis Infobyte -->
+                                                <div class="timeline-item">
+                                                    <div class="circle-dot"></div>
+                                                    <h3 class="timeline-date">
+                                                        <i class="fa fa-calendar"></i> Mar 2023 - Apr 2023
+                                                    </h3>
+                                                    <h4 class="timeline-text">Web Developer Internship</h4>
+                                                    <p class="timeline-text">Oasis Infobyte - Remote</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <!-- Oasis Infobyte - March 2023 to April 2023 -->
-                <div class="timeline-item">
-                    <div class="circle-dot"></div>
-                    <h3 class="timeline-date">
-                        <i class="fa fa-calendar"></i> March 2023 - April 2023 (2 Months)
-                    </h3>
-                    <div class="formitems col-12 padd-15">
-                        <h4 class="timeline-text">Oasis Infobyte (Web-Development)</h4>
-                        <p class="timeline-text">During this internship, I acquired a strong command of JavaScript and demonstrated my expertise by creating several applications utilizing the Document Object Model (DOM), showcasing my ability to manipulate web page elements dynamically and enhance user interactivity.</p>
-                        <br>
-                        <div class="formitems col-12 padd-15">
-                            <button type="submit" name="submit" class="btn" style="cursor: pointer;" onclick="window.open('https://drive.google.com/file/d/1pROftAt_23XuH7RFGM9hI4mMLyj9WrhD/view?usp=sharing', '_blank')">Certificate</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Graphbud Technologies - May 2023 to November 2023 -->
-                <div class="timeline-item">
-                    <div class="circle-dot"></div>
-                    <h3 class="timeline-date">
-                        <i class="fa fa-calendar"></i> May 2023 - November 2023 (6 Months)
-                    </h3>
-                    <h4 class="timeline-text">Graphbud Technologies (Backend-Developer)</h4>
-                    <p class="timeline-text">During this internship, I worked as a backend developer, exploring technologies like Node.js, Docker, LocalStack, GraphQL, Neo4j, Cypher Query Language.</p>
-                    <br>
-                    <div class="formitems col-12 padd-15">
-                        <button type="submit" name="submit" class="btn" style="cursor: pointer;" onclick="window.open('https://drive.google.com/drive/folders/1z2ca71cA8dUHzJT3QBAiqfgqjlXMdHjh?usp=sharing','_blank')">Certificate</button>
-                    </div>
-                </div>
-
-                <!-- Graphbud Technologies - December 2023 onwards (Full-Stack Development) -->
-                <div class="timeline-item">
-                    <div class="circle-dot"></div>
-                    <h3 class="timeline-date">
-                        <i class="fa fa-calendar"></i> December 2023 - (6 Months)
-                    </h3>
-                    <h4 class="timeline-text">Graphbud Technologies (Full-Stack Development)</h4>
-                    <p class="timeline-text">Continuing with Graphbud Technologies, I transitioned into full-stack development, further enhancing my skills across both frontend and backend technologies.</p>
-                    <br>
-                    <div class="formitems col-12 padd-15">
-                        <button type="submit" name="submit" class="btn" style="cursor: pointer;" onclick="window.open('https://drive.google.com/drive/folders/1z2ca71cA8dUHzJT3QBAiqfgqjlXMdHjh?usp=sharing','_blank')">Certificate</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>                       
-                </div>
-            </section>
-            <!-- ===== About Section End ===== -->
-            <!-- ===== Services Section Start ===== -->
-            <section class="service section " id="services">
-                <div class="container ">
-                    <div class="row ">
-                        <div class="section-title padd-15 ">
+                    <!-- ===== Services Section Start ===== -->
+            <section class="service section" id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
                             <h2>Services</h2>
                         </div>
                     </div>
-                    <div class="row ">
+                    <div class="row">
                         <!-- ===== Service item Start ====== -->
-                        <div class="service-item padd-15 ">
-                            <div class="service-item-inner ">
-                                <div class="icon ">
-                                    <i class="fa fa-wallet "></i>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon">
+                                    <i class="fa fa-wallet"></i>
                                 </div>
                                 <h4>Web development</h4>
-                                <p>I can create any website using HTML,CSS,ReactJS for frontend and PHP,NodeJS in backend Along with GraphDB(NEO4j)</p>
+                                <p>I can create any website using HTML, CSS, ReactJS for frontend and PHP, NodeJS in backend Along with GraphDB(NEO4j).</p>
                             </div>
                         </div>
                         <!-- ===== Service item End ====== -->
                         <!-- ===== Service item Start ====== -->
-                        <div class="service-item padd-15 ">
-                            <div class="service-item-inner ">
-                                <div class="icon ">
-                                    <i class="fa fa-coins "></i>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon">
+                                    <i class="fa fa-coins"></i>
                                 </div>
                                 <h4>Mern Stack development</h4>
-                                <p>Proficient in Node.js, with expertise in building scalable and performant applications using asynchronous programming, event-driven architecture, and a strong command of core modules and npm packages..</p>
+                                <p>Proficient in Node.js, with expertise in building scalable and performant applications using asynchronous programming, event-driven architecture, and a strong command of core modules and npm packages.</p>
                             </div>
                         </div>
                         <!-- ===== Service item End ====== -->
                         <!-- ===== Service item Start ====== -->
-                        <div class="service-item padd-15 ">
-                            <div class="service-item-inner ">
-                                <div class="icon ">
-                                    <i class="fa fa-money-bill "></i>
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon">
+                                    <i class="fa fa-money-bill"></i>
                                 </div>
                                 <h4>Problem Solving</h4>
-                                <p>I would be able to provide a solution for real life problems using in depth concepts of Data Structure and Algorithm</p>
+                                <p>I would be able to provide a solution for real-life problems using in-depth concepts of Data Structure and Algorithm.</p>
                             </div>
                         </div>
                         <!-- ===== Service item End ====== -->
                         <!-- ===== Service item Start ====== -->
-                        <div class="service-item padd-15 ">
-                            <div class="service-item-inner ">
-                                <div class="icon ">
+                        <div class="service-item padd-15">
+                            <div class="service-item-inner">
+                                <div class="icon">
                                     <i class="fa fa-diamond" aria-hidden="true"></i>
                                 </div>
                                 <h4>Machine Learning</h4>
                                 <p>Learning Phase is going on.</p>
-                            </div>
-                        </div>
-                        <!-- ===== Service item End ====== --
-                        <!-- ===== Service item Start ====== --
-                        <div class="service-item padd-15 ">
-                            <div class="service-item-inner ">
-                                <div class="icon ">
-                                    <i class="fa-solid fa-lights-holiday"></i>
-                                </div>
-                                <h4>IMMITATION</h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil velit ab itaque.</p>
-                            </div>
-                        </div>
-                        <!-- ===== Service item End ====== -->
-                        <!-- ===== Service item Start ====== --
-                        <div class="service-item padd-15 ">
-                            <div class="service-item-inner ">
-                                <div class="icon ">
-                                    <i class="fa fa-bullhorn "></i>
-                                </div>
-                                <h4>ROSE GOLD</h4>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil velit ab itaque.</p>
                             </div>
                         </div>
                         <!-- ===== Service item End ====== -->
@@ -399,7 +360,9 @@
                 </div>
             </section>
             <!-- ===== Services Section End ===== -->
-                        <!-- ===== Portfolio Section Start ===== -->
+
+            <!-- ===== Portfolio Section Start ==== -->
+                                 <!-- ===== Portfolio Section Start ===== -->
     <section class="portfolio section" id="portfolio">
         <div class="container">
             <!-- Portfolio items -->
@@ -462,169 +425,163 @@
                 </div>
             </div>
             </div>
+        
+    </section>
+    <!-- ===== Contact Section Start ===== -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="section-title padd-15">
+                    <h2>Contact Me</h2>
+                </div>
             </div>
+            <h3 class="contact-title padd-15">DO YOU HAVE ANY QUESTIONS?</h3>
+            <h4 class="contact-sub-title padd-15">I'M AT YOUR SERVICES</h4>
+            <div class="row">
+                <!-- ===== Contact info item start ====== -->
+                <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-phone"></i></div>
+                    <h4>Call Us On</h4>
+                    <p>+91 99782 75972</p>
+                </div>
+                <!-- ===== Contact info item end ====== -->
+                <!-- ===== Contact info item start ====== -->
+                <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+                    <h4>Office</h4>
+                    <p>Ahemdabad</p>
+                </div>
+                <!-- ===== Contact info item end ====== -->
+                <!-- ===== Contact info item start ====== -->
+                <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-envelope"></i></div>
+                    <h4>Email</h4>
+                    <p>bhavinondhiya0@gmail.com</p>
+                </div>
+                <!-- ===== Contact info item end ====== -->
+                <!-- ===== Contact info item start ====== -->
+                <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-globe-europe"></i></div>
+                    <h4>Website</h4>
+                    <p><a href="https://ondhiyabhavin.netlify.app/">https://ondhiyabhavin.netlify.app/</a></p>
+                </div>
+                <!-- ===== Contact info item end ====== -->
+            </div>
+            <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+            <h4 class="contact-sub-title padd-15">I'M VERY RESPONSIVE TO MESSAGES</h4>
+            <!-- ====== Contact Form ====== -->
+            <form action="https://formsubmit.co/bhavinondhiya0@gmail.com" method="POST">
+                <div class="row">
+                    <div class="contact-form padd-15">
+                        <div class="row">
+                            <div class="form-item col-6 padd-15">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                            </div>
+                            <div class="form-item col-6 padd-15">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item col-12 padd-15">
+                                <div class="form-group">
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item col-12 padd-15">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="row">
+                            <div class="form-item col-12 padd-15">
+                                <button type="submit" name="submit" class="btn" style="cursor: pointer;">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
+    
     <!-- ===== Portfolio Section End ===== -->
-
-                        <!-- Lightbox Modal -->
-                        <!-- <div id="lightboxModal" class="modal">
-                            <span class="close" onclick="closeLightbox()">&times;</span>
-                            <div class="modal-content">
-                                <h2 id="projectTitle"></h2>
-                                <iframe id="projectIframe" width="100%" height="600px" frameborder="0"></iframe>
-                            </div>
-                        </div> -->
-
-                        <!-- <script>
-                            function openLightbox(projectTitle, projectLink) {
-                                document.getElementById('projectTitle').innerText = projectTitle;
-                                document.getElementById('projectIframe').src = projectLink;
-                                document.getElementById('lightboxModal').style.display = 'block';
-                            }
-
-                            function closeLightbox() {
-                                document.getElementById('projectTitle').innerText = '';
-                                document.getElementById('projectIframe').src = '';
-                                document.getElementById('lightboxModal').style.display = 'none';
-                            }
-                        </script> -->
-                    </body>
-                </section>
-            
-            <!-- ===== Portfolio Section End ===== -->
-            <!-- ===== Contact Section Start ===== -->
-            <section class="contact section " id="contact">
-                <div class="container ">
-                    <div class="row ">
-                        <div class="section-title padd-15 ">
-                            <h2>Contact Me</h2>
-                        </div>
-                    </div>
-                    <h3 class="contact-title padd-15 ">DO YOU HAVE ANY QUESTIONS ?</h3>
-                    <h4 class="contact-sub-title padd-15 ">I'M AT YOUR SERVICES</h4>
-                    <div class="row ">
-                        <!-- ===== Contact info item start ====== -->
-                        <div class="contact-info-item padd-15 ">
-                            <div class="icon "><i class="fa fa-phone "></i></div>
-                            <h4>Call Us On</h4>
-                            <p>+91 99782 75972</p>
-                        </div>
-                        <!-- ===== Contact info item end ====== -->
-                        <!-- ===== Contact info item start ====== -->
-                        <div class="contact-info-item padd-15 ">
-                            <div class="icon "><i class="fa fa-map-marker-alt "></i></div>
-                            <h4>Office</h4>
-                            <p>Ahemdabad</p>
-                        </div>
-                        <!-- ===== Contact info item end ====== -->
-                        <!-- ===== Contact info item start ====== -->
-                        <div class="contact-info-item padd-15 ">
-                            <div class="icon "><i class="fa fa-envelope "></i></div>
-                            <h4>Email</h4>
-                            <p>bhavinondhiya0@gmail.com</p>
-                        </div>
-                        <!-- ===== Contact info item end ====== -->
-                        <!-- ===== Contact info item start ====== -->
-                        <div class="contact-info-item padd-15 ">
-                            <div class="icon "><i class="fa fa-globe-europe "></i></div>
-                            <h4>Website</h4>
-                            <p>https://ondhiyabhavin.netlify.app/</p>
-                        </div>
-                        <!-- ===== Contact info item end ====== -->
-                    </div>
-                    <h3 class="contact-title padd-15 ">SEND ME AN EMAIL</h3>
-                    <h4 class="contact-sub-title padd-15 ">I'M VERY RESPONSIVE TO MESSAGES</h4>
-                    <!-- ====== Contact Form ====== -->
-                    <form action="https://formsubmit.co/bhavinondhiya0@gmail.com" method="POST">
-                        <div class="row ">
-                            <div class="contact-form padd-15 ">
-                                <div class="row ">
-                                    <div class="form-item col-6 padd-15 ">
-                                        <div class="form-group ">
-                                            <input type="text " name="name" class="form-control " class="name " placeholder="Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-item col-6 padd-15 ">
-                                        <div class="form-group ">
-                                            <input type="email " name="email"class="form-control " class="email " placeholder="Email" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="form-item col-12 padd-15 ">
-                                        <div class="form-group ">
-                                            <input type="text " name="subject" class="form-control " placeholder="Subject" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="form-item col-12 padd-15 ">
-                                        <div class="form-group ">
-                                            <textarea name="message" class="form-control " class="msg " id=" " placeholder="Message" required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="_captcha" value="false">
-                                <div class="row ">
-                                    <div class="form-item col-12 padd-15 ">
-                                        <button type="submit" name="submit" class="btn " style="cursor: pointer;">Send Message</button>
-                                        </div>
-                            </div>
-                        </div>
-                    </form>
+                    
                 </div>
             </section>
-            <!-- ===== Contact Section End ===== -->
+            <!-- ===== About Section End ===== -->
+            
         </div>
-        
-    <!--Footer-->
-
-    <footer>
-        <div class="footer-content">
-            <div class="social-icons">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="https://your-blog-link.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fa fa-rss"></i>
-                </a>
-                <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fa fa-code"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
         <!-- ===== Main Content End ===== -->
     </div>
     <!-- ===== Main Container End ===== -->
     <!-- ===== Style Switcher Start ===== -->
-    <div class="style-switcher ">
-        <div class="style-switcher-toggler s-icon ">
-            <i class="fas fa-cog fa-spin "></i>
+    <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
         </div>
-        <div class="day-night s-icon ">
-            <i class="fas "></i>
+        <div class="day-night s-icon">
+            <i class="fas"></i>
         </div>
         <h4>Theme Colors</h4>
-        <div class="colors ">
-            <span class="color-1 " onclick="setActiveStyle( 'color-1') "></span>
-            <span class="color-2 " onclick="setActiveStyle( 'color-2') "></span>
-            <span class="color-3 " onclick="setActiveStyle( 'color-3') "></span>
-            <span class="color-4 " onclick="setActiveStyle( 'color-4') "></span>
-            <span class="color-5 " onclick="setActiveStyle( 'color-5') "></span>
+        <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
         </div>
     </div>
     <!-- ===== Style Switcher End ===== -->
     <!-- ===== JS Files ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js " referrerpolicy="no-referrer "></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+        
+            const updateActiveLink = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        document.querySelector(`a[href="#${entry.target.id}"]`).classList.add('active');
+                    }
+                });
+            };
+        
+            const options = {
+                root: null,
+                threshold: 0.5
+            };
+        
+            const observer = new IntersectionObserver(updateActiveLink, options);
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="script.js"></script>
     <script src="style-switcher.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js ">
-    </script>
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
