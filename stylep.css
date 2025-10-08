@@ -553,7 +553,11 @@ h3.my-profession {
     text-align: justify;
     color: var(--text-black-700);
 }
-
+.timeline-text-company {
+    font-size: 20px;
+    text-align: justify;
+    color: var(--text-black-700);
+}
 
 /* Service */
 
