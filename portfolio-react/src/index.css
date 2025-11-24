@@ -682,6 +682,24 @@ h3.my-profession {
     display: block;
 }
 
+.portfolio .portfolio-img {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.portfolio .portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.portfolio .portfolio-img:hover img {
+    transform: scale(1.05);
+}
+
 /* Contact */
 
 .contact-title {

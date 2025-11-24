@@ -39,11 +39,7 @@ const Portfolio = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <img
-                          src={imageSrc}
-                          alt={project.title}
-                          style={{ maxWidth: "100%", height: "auto" }}
-                        />
+                        <img src={imageSrc} alt={project.title} />
                       </a>
                     </div>
                   </div>
