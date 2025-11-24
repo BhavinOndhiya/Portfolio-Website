@@ -6,13 +6,10 @@ import {
   FaBriefcase,
   FaComments,
   FaBlog,
-  FaLock,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
 
   const navItems = [
     { id: "home", label: "Home", icon: FaHome, href: "#home" },
@@ -32,18 +29,9 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
       href: "https://blogbyte.vercel.app/",
       external: true,
     },
-    { id: "admin", label: "Admin", icon: FaLock, route: "/admin" },
   ];
 
   const handleNavClick = (e, item) => {
-    if (item.route) {
-      e.preventDefault();
-      navigate(item.route);
-      if (window.innerWidth < 1200) {
-        setIsOpen(false);
-      }
-      return;
-    }
     if (item.external) {
       return; // Let external links work normally
     }

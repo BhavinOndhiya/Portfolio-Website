@@ -123,7 +123,7 @@ const getEmptyFormState = (fields) =>
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  const { content, refreshContent } = useContent();
+  const { content, refreshContent, loading, error } = useContent();
 
   const [activeSection, setActiveSection] = useState("services");
   const [formState, setFormState] = useState(() =>
@@ -145,8 +145,14 @@ const AdminDashboard = () => {
     email: "",
     password: "",
   });
-  const [submitting, setSubmitting] = useState(false);
-  const [feedback, setFeedback] = useState(null);
+  const [pendingAction, setPendingAction] = useState(null);
+  const [toast, setToast] = useState(null);
+
+  const isPending = (action) => pendingAction === action;
+
+  const showToast = (type, message) => {
+    setToast({ type, message, id: Date.now() });
+  };
 
   useEffect(() => {
     if (content?.hero) {
@@ -169,7 +175,30 @@ const AdminDashboard = () => {
     }
   }, [activeSection]);
 
+  useEffect(() => {
+    if (!toast) return;
+    const timeout = setTimeout(() => setToast(null), 3500);
+    return () => clearTimeout(timeout);
+  }, [toast]);
+
+  useEffect(() => {
+    if (error) {
+      showToast("error", error);
+    }
+  }, [error]);
+
   const sectionItems = content?.[activeSection] || [];
+  const overlayMessage = loading
+    ? "Loading fresh content..."
+    : {
+        hero: "Updating hero section...",
+        entry: editingId ? "Updating entry..." : "Creating entry...",
+        delete: "Removing entry...",
+        reset: "Restoring defaults...",
+      }[pendingAction] || "Saving changes...";
+
+  const showOverlay =
+    token && (loading || (pendingAction && pendingAction !== "login"));
 
   const authenticatedRequest = async (path, options = {}) => {
     if (!token) {
@@ -197,8 +226,7 @@ const AdminDashboard = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    setSubmitting(true);
-    setFeedback(null);
+    setPendingAction("login");
     try {
       const response = await fetch(`${ADMIN_API_BASE_URL}/api/admin/login`, {
         method: "POST",
@@ -213,17 +241,18 @@ const AdminDashboard = () => {
       const data = await response.json();
       localStorage.setItem(TOKEN_KEY, data.token);
       setToken(data.token);
-      setFeedback("Signed in");
+      showToast("success", "Signed in successfully");
     } catch (error) {
-      setFeedback(error.message);
+      showToast("error", error.message);
     } finally {
-      setSubmitting(false);
+      setPendingAction(null);
     }
   };
 
   const handleLogout = () => {
     setToken("");
     localStorage.removeItem(TOKEN_KEY);
+    showToast("info", "Signed out");
   };
 
   const handleFieldChange = (event) => {
@@ -244,8 +273,7 @@ const AdminDashboard = () => {
       data: formState,
       ...(editingId ? { id: editingId } : {}),
     };
-    setSubmitting(true);
-    setFeedback(null);
+    setPendingAction("entry");
     try {
       await authenticatedRequest("/api/content", {
         method: "PATCH",
@@ -254,11 +282,11 @@ const AdminDashboard = () => {
       await refreshContent();
       setFormState(getEmptyFormState(sectionConfigs[activeSection].fields));
       setEditingId(null);
-      setFeedback("Saved!");
+      showToast("success", editingId ? "Entry updated" : "Entry added");
     } catch (error) {
-      setFeedback(error.message);
+      showToast("error", error.message);
     } finally {
-      setSubmitting(false);
+      setPendingAction(null);
     }
   };
 
@@ -276,8 +304,7 @@ const AdminDashboard = () => {
     if (!window.confirm("Delete this entry?")) {
       return;
     }
-    setSubmitting(true);
-    setFeedback(null);
+    setPendingAction("delete");
     try {
       await authenticatedRequest("/api/content", {
         method: "PATCH",
@@ -288,11 +315,11 @@ const AdminDashboard = () => {
         }),
       });
       await refreshContent();
-      setFeedback("Entry removed");
+      showToast("success", "Entry removed");
     } catch (error) {
-      setFeedback(error.message);
+      showToast("error", error.message);
     } finally {
-      setSubmitting(false);
+      setPendingAction(null);
     }
   };
 
@@ -302,8 +329,7 @@ const AdminDashboard = () => {
       .split(",")
       .map((role) => role.trim())
       .filter(Boolean);
-    setSubmitting(true);
-    setFeedback(null);
+    setPendingAction("hero");
     try {
       await authenticatedRequest("/api/content", {
         method: "PATCH",
@@ -313,11 +339,11 @@ const AdminDashboard = () => {
         }),
       });
       await refreshContent();
-      setFeedback("Hero updated");
+      showToast("success", "Hero updated");
     } catch (error) {
-      setFeedback(error.message);
+      showToast("error", error.message);
     } finally {
-      setSubmitting(false);
+      setPendingAction(null);
     }
   };
 
@@ -325,19 +351,18 @@ const AdminDashboard = () => {
     if (!window.confirm("Reset all content to defaults?")) {
       return;
     }
-    setSubmitting(true);
-    setFeedback(null);
+    setPendingAction("reset");
     try {
       await authenticatedRequest("/api/content", {
         method: "PATCH",
         body: JSON.stringify({ action: "RESET_CONTENT" }),
       });
       await refreshContent();
-      setFeedback("Content restored to defaults");
+      showToast("success", "Content restored to defaults");
     } catch (error) {
-      setFeedback(error.message);
+      showToast("error", error.message);
     } finally {
-      setSubmitting(false);
+      setPendingAction(null);
     }
   };
 
@@ -349,6 +374,13 @@ const AdminDashboard = () => {
       })),
     []
   );
+
+  const toastElement = toast ? (
+    <div className={`admin-toast ${toast.type}`}>
+      <span className="toast-dot" />
+      {toast.message}
+    </div>
+  ) : null;
 
   if (!token) {
     return (
@@ -384,9 +416,14 @@ const AdminDashboard = () => {
                 required
               />
             </label>
-            {feedback && <p className="error">{feedback}</p>}
-            <button type="submit" className="btn" disabled={submitting}>
-              {submitting ? "Signing in..." : "Sign In"}
+            <button type="submit" className="btn" disabled={isPending("login")}>
+              {isPending("login") ? (
+                <>
+                  <span className="btn-spinner"></span> Signing in...
+                </>
+              ) : (
+                "Sign In"
+              )}
             </button>
             <button
               type="button"
@@ -398,6 +435,7 @@ const AdminDashboard = () => {
             </button>
           </form>
         </div>
+        {toastElement}
       </div>
     );
   }
@@ -415,15 +453,29 @@ const AdminDashboard = () => {
           <button className="btn" onClick={() => navigate("/")}>
             View Site
           </button>
-          <button className="btn" onClick={handleReset} disabled={submitting}>
-            Reset to Defaults
+          <button
+            className="btn"
+            onClick={handleReset}
+            disabled={isPending("reset")}
+          >
+            {isPending("reset") ? (
+              <>
+                <span className="btn-spinner"></span> Resetting...
+              </>
+            ) : (
+              "Reset to Defaults"
+            )}
           </button>
         </div>
       </div>
-      {feedback && (
-        <p className="error" style={{ color: "var(--skin-color)" }}>
-          {feedback}
-        </p>
+      {toastElement}
+      {showOverlay && (
+        <div className="admin-loading-overlay">
+          <div className="admin-loading-card">
+            <span className="spinner large"></span>
+            <p>{overlayMessage}</p>
+          </div>
+        </div>
       )}
       <div className="admin-layout">
         <aside className="admin-sidebar">
@@ -524,8 +576,18 @@ const AdminDashboard = () => {
                   }
                 />
               </label>
-              <button type="submit" className="btn" disabled={submitting}>
-                {submitting ? "Saving..." : "Save Hero Content"}
+              <button
+                type="submit"
+                className="btn"
+                disabled={isPending("hero")}
+              >
+                {isPending("hero") ? (
+                  <>
+                    <span className="btn-spinner"></span> Saving...
+                  </>
+                ) : (
+                  "Save Hero Content"
+                )}
               </button>
             </form>
           </section>
@@ -581,20 +643,33 @@ const AdminDashboard = () => {
                     </label>
                   );
                 })}
-                <button type="submit" className="btn" disabled={submitting}>
-                  {submitting
-                    ? "Saving..."
-                    : editingId
-                    ? "Update Entry"
-                    : "Add Entry"}
+                <button
+                  type="submit"
+                  className="btn"
+                  disabled={isPending("entry")}
+                >
+                  {isPending("entry") ? (
+                    <>
+                      <span className="btn-spinner"></span>{" "}
+                      {editingId ? "Updating..." : "Adding..."}
+                    </>
+                  ) : editingId ? (
+                    "Update Entry"
+                  ) : (
+                    "Add Entry"
+                  )}
                 </button>
               </form>
               <div className="admin-list">
                 <h3>Existing Entries</h3>
                 {sectionItems.length === 0 && <p>No entries yet.</p>}
                 <ul>
-                  {sectionItems.map((item) => (
-                    <li key={item.id}>
+                  {sectionItems.map((item, index) => (
+                    <li
+                      key={item.id}
+                      className="admin-list-item"
+                      style={{ animationDelay: `${index * 0.05}s` }}
+                    >
                       <div>
                         <strong>
                           {item[currentConfig.displayField] ||
@@ -617,8 +692,13 @@ const AdminDashboard = () => {
                           className="btn small danger"
                           type="button"
                           onClick={() => handleDelete(item.id)}
+                          disabled={isPending("delete")}
                         >
-                          Delete
+                          {isPending("delete") ? (
+                            <span className="btn-spinner" />
+                          ) : (
+                            "Delete"
+                          )}
                         </button>
                       </div>
                     </li>
