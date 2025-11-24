@@ -105,16 +105,16 @@ const About = () => {
                             {item.extra && (
                               <h4 className="timeline-text">{item.extra}</h4>
                             )}
-                        {item.documentUrl && (
-                          <a
-                            className="attachment-link"
-                            href={item.documentUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            View Result Sheet
-                          </a>
-                        )}
+                            {item.documentUrl && (
+                              <a
+                                className="attachment-link"
+                                href={item.documentUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                View Result Sheet
+                              </a>
+                            )}
                           </div>
                         ))}
                       </div>

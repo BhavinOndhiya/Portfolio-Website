@@ -1,14 +1,14 @@
 .admin-login.alt-theme .hint-text {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.45);
 }
 
 .admin-login.alt-theme .btn.outline {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.45);
+    color: #111;
+    border-color: rgba(0, 0, 0, 0.3);
 }
 
 .admin-login.alt-theme .btn.outline:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.05);
 }
 @import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root {
@@ -1108,22 +1108,22 @@ h3.my-profession {
 }
 
 .admin-login.alt-theme {
-    background: linear-gradient(135deg, #101223, #1c1f36);
-    color: #e8ebff;
+    background: #f4f4f4;
+    color: #111;
 }
 
 .admin-login-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
+    background: #ffffff;
     padding: 2.5rem;
-    border-radius: 18px;
-    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     width: min(420px, 90vw);
 }
 
 .login-brand h1 {
     margin-bottom: 0.35rem;
-    color: #fff;
+    color: #111;
 }
 
 .login-form.modern label {
@@ -1134,16 +1134,16 @@ h3.my-profession {
 
 .login-form.modern input {
     margin-top: 0.35rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
+    background: #f3f3f3;
+    border: 1px solid #dcdcdc;
+    color: #111;
     padding: 0.85rem;
 }
 
 .login-hint {
     text-align: center;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.6);
     margin-top: 1rem;
 }
 

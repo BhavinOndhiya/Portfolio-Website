@@ -458,11 +458,7 @@ const AdminDashboard = () => {
   const toastElement = toast ? (
     <div className={`admin-toast ${toast.type}`}>
       <span className={`toast-icon ${toast.type}`}>
-        {toast.type === "success"
-          ? "✓"
-          : toast.type === "error"
-          ? "✕"
-          : "ℹ"}
+        {toast.type === "success" ? "✓" : toast.type === "error" ? "✕" : "ℹ"}
       </span>
       <span>{toast.message}</span>
     </div>
