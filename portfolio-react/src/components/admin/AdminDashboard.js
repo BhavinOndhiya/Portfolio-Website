@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../../context/ContentContext";
 import { ADMIN_API_BASE_URL } from "../../config";
@@ -147,11 +147,21 @@ const AdminDashboard = () => {
   });
   const [pendingAction, setPendingAction] = useState(null);
   const [toast, setToast] = useState(null);
+  const [uploadContext, setUploadContext] = useState(null);
+  const fileInputRef = useRef(null);
 
   const isPending = (action) => pendingAction === action;
 
   const showToast = (type, message) => {
     setToast({ type, message, id: Date.now() });
+  };
+
+  const triggerUpload = (context) => {
+    setUploadContext(context);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+      fileInputRef.current.click();
+    }
   };
 
   useEffect(() => {
@@ -195,10 +205,65 @@ const AdminDashboard = () => {
         entry: editingId ? "Updating entry..." : "Creating entry...",
         delete: "Removing entry...",
         reset: "Restoring defaults...",
+        upload: uploadContext?.label
+          ? `Uploading ${uploadContext.label}...`
+          : "Uploading file...",
       }[pendingAction] || "Saving changes...";
 
   const showOverlay =
     token && (loading || (pendingAction && pendingAction !== "login"));
+
+  const handleFileSelection = async (event) => {
+    const file = event.target.files?.[0];
+    if (!file || !uploadContext) {
+      return;
+    }
+    setPendingAction("upload");
+    try {
+      const { uploadUrl, fileUrl } = await authenticatedRequest(
+        "/api/uploads/sign",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            filename: file.name,
+            contentType: file.type || "application/octet-stream",
+          }),
+        }
+      );
+
+      const response = await fetch(uploadUrl, {
+        method: "PUT",
+        headers: {
+          "Content-Type": file.type || "application/octet-stream",
+        },
+        body: file,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload file");
+      }
+
+      uploadContext.onSuccess(fileUrl);
+      showToast("success", `${uploadContext.label || "File"} uploaded`);
+    } catch (error) {
+      showToast("error", error.message);
+    } finally {
+      setPendingAction(null);
+      setUploadContext(null);
+      if (event.target) {
+        event.target.value = "";
+      }
+    }
+  };
+
+  const hiddenFileInput = (
+    <input
+      type="file"
+      ref={fileInputRef}
+      style={{ display: "none" }}
+      onChange={handleFileSelection}
+    />
+  );
 
   const authenticatedRequest = async (path, options = {}) => {
     if (!token) {
@@ -384,14 +449,19 @@ const AdminDashboard = () => {
 
   if (!token) {
     return (
-      <div className="admin-login">
-        <div className="container">
-          <h1>Admin Access</h1>
-          <form onSubmit={handleLogin} className="login-form">
+      <div className="admin-login alt-theme">
+        {hiddenFileInput}
+        <div className="admin-login-card">
+          <div className="login-brand">
+            <h1>Portfolio Admin</h1>
+            <p>Manage every section of the site securely.</p>
+          </div>
+          <form onSubmit={handleLogin} className="login-form modern">
             <label>
-              Email
+              Email address
               <input
                 type="email"
+                placeholder="you@example.com"
                 value={passwordForm.email}
                 onChange={(event) =>
                   setPasswordForm((prev) => ({
@@ -406,6 +476,7 @@ const AdminDashboard = () => {
               Password
               <input
                 type="password"
+                placeholder="••••••••"
                 value={passwordForm.password}
                 onChange={(event) =>
                   setPasswordForm((prev) => ({
@@ -416,7 +487,11 @@ const AdminDashboard = () => {
                 required
               />
             </label>
-            <button type="submit" className="btn" disabled={isPending("login")}>
+            <button
+              type="submit"
+              className="btn primary wide"
+              disabled={isPending("login")}
+            >
               {isPending("login") ? (
                 <>
                   <span className="btn-spinner"></span> Signing in...
@@ -427,13 +502,13 @@ const AdminDashboard = () => {
             </button>
             <button
               type="button"
-              className="btn"
+              className="btn outline wide"
               onClick={() => navigate("/")}
-              style={{ marginLeft: "1rem" }}
             >
               Back to site
             </button>
           </form>
+          <p className="login-hint">Private console • Authorized use only</p>
         </div>
         {toastElement}
       </div>
@@ -444,6 +519,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
+      {hiddenFileInput}
       <div className="admin-header">
         <h1>Content Dashboard</h1>
         <div className="admin-actions">
@@ -523,6 +599,25 @@ const AdminDashboard = () => {
                       }))
                     }
                   />
+                  <div className="upload-actions">
+                    <button
+                      type="button"
+                      className="btn outline"
+                      onClick={() =>
+                        triggerUpload({
+                          label: "resume",
+                          onSuccess: (url) =>
+                            setHeroForm((prev) => ({
+                              ...prev,
+                              resumeUrl: url,
+                            })),
+                        })
+                      }
+                    >
+                      Upload file
+                    </button>
+                    <span className="hint-text">PDF / DOC up to 10MB</span>
+                  </div>
                 </label>
                 <label>
                   Hire Me Target
@@ -549,6 +644,25 @@ const AdminDashboard = () => {
                       }))
                     }
                   />
+                  <div className="upload-actions">
+                    <button
+                      type="button"
+                      className="btn outline"
+                      onClick={() =>
+                        triggerUpload({
+                          label: "hero image",
+                          onSuccess: (url) =>
+                            setHeroForm((prev) => ({
+                              ...prev,
+                              imageUrl: url,
+                            })),
+                        })
+                      }
+                    >
+                      Upload image
+                    </button>
+                    <span className="hint-text">PNG/JPG up to 5MB</span>
+                  </div>
                 </label>
               </div>
               <label>
@@ -597,42 +711,42 @@ const AdminDashboard = () => {
             <div className="editor-grid">
               <form onSubmit={handleEntrySubmit} className="admin-form">
                 {currentConfig.fields.map((field) => {
+                  const normalized = field.name.toLowerCase();
+                  const supportsUpload =
+                    normalized.includes("image") ||
+                    normalized.includes("screenshot") ||
+                    normalized.includes("logo") ||
+                    normalized.includes("resume");
+
+                  let control = null;
+
                   if (field.type === "textarea") {
-                    return (
-                      <label key={field.name}>
-                        {field.label}
-                        <textarea
-                          name={field.name}
-                          value={formState[field.name]}
-                          onChange={handleFieldChange}
-                          required
-                        />
-                      </label>
+                    control = (
+                      <textarea
+                        name={field.name}
+                        value={formState[field.name]}
+                        onChange={handleFieldChange}
+                        required
+                      />
                     );
-                  }
-                  if (field.type === "select") {
-                    return (
-                      <label key={field.name}>
-                        {field.label}
-                        <select
-                          name={field.name}
-                          value={formState[field.name]}
-                          onChange={handleFieldChange}
-                          required
-                        >
-                          <option value="">Select</option>
-                          {field.options.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
+                  } else if (field.type === "select") {
+                    control = (
+                      <select
+                        name={field.name}
+                        value={formState[field.name]}
+                        onChange={handleFieldChange}
+                        required
+                      >
+                        <option value="">Select</option>
+                        {field.options.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
                     );
-                  }
-                  return (
-                    <label key={field.name}>
-                      {field.label}
+                  } else {
+                    control = (
                       <input
                         type={field.type}
                         name={field.name}
@@ -640,6 +754,36 @@ const AdminDashboard = () => {
                         onChange={handleFieldChange}
                         required
                       />
+                    );
+                  }
+
+                  return (
+                    <label key={field.name}>
+                      {field.label}
+                      {control}
+                      {supportsUpload && (
+                        <div className="upload-actions">
+                          <button
+                            type="button"
+                            className="btn outline"
+                            onClick={() =>
+                              triggerUpload({
+                                label: field.label.toLowerCase(),
+                                onSuccess: (url) =>
+                                  setFormState((prev) => ({
+                                    ...prev,
+                                    [field.name]: url,
+                                  })),
+                              })
+                            }
+                          >
+                            Upload file
+                          </button>
+                          <span className="hint-text">
+                            We will fill the URL automatically
+                          </span>
+                        </div>
+                      )}
                     </label>
                   );
                 })}
