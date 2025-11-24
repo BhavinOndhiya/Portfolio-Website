@@ -485,17 +485,6 @@ h3.my-profession {
     line-height: 40px;
 }
 
-.about .about-content .education,
-.about .about-content .experience {
-    flex: 0 0 50%;
-    max-width: 50%;
-    margin-top: 30px;
-}
-
-.about .about-content.experience {
-    max-width: 50%;
-}
-
 .about .about-content h3.title {
     font-size: 24px;
     margin-bottom: 30px;
@@ -607,29 +596,6 @@ h3.my-profession {
     color: var(--text-black-700);
 }
 
-.horizontal-sections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: stretch;
-}
-
-.horizontal-sections > div {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 300px;
-}
-
-.horizontal-sections > div .timeline-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.horizontal-sections > div .timeline {
-    flex: 1;
-}
 
 .sub-experience {
     margin-top: 15px;
@@ -645,6 +611,7 @@ h3.my-profession {
     margin-bottom: 30px;
     flex: 0 0 33.33%;
     max-width: 33.33%;
+    display: flex;
 }
 
 .service .service-item .service-item-inner {
@@ -654,6 +621,9 @@ h3.my-profession {
     padding: 30px 15px;
     text-align: center;
     transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .service .service-item .service-item-inner:hover {
@@ -661,22 +631,24 @@ h3.my-profession {
 }
 
 .service .service-item .service-item-inner .icon {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto 30px;
-    text-align: center;
+    background: rgba(236, 24, 57, 0.12);
     transition: all 0.3s ease;
 }
 
 .service .service-item .service-item-inner .icon .fa,
 .service .service-item .service-item-inner .icon svg {
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 36px;
     color: var(--skin-color);
     transition: all 0.3s ease;
-    display: block;
+    display: inline-flex;
+    line-height: 1;
 }
 
 .service .service-item .service-item-inner:hover .icon {
@@ -685,8 +657,7 @@ h3.my-profession {
 
 .service .service-item .service-item-inner:hover .icon .fa,
 .service .service-item .service-item-inner:hover .icon svg {
-    font-size: 40px;
-    transform: scale(1.05);
+    transform: scale(1.15);
     color: #ffffff;
 }
 
@@ -702,6 +673,7 @@ h3.my-profession {
     font-size: 16px;
     color: var(--text-black-700);
     line-height: 25px;
+    margin-top: auto;
 }
 
 /* Portfolio Section*/
@@ -734,15 +706,18 @@ h3.my-profession {
 .portfolio .portfolio-img {
     position: relative;
     width: 100%;
-    height: 320px;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    background: var(--bg-black-100);
+    border-radius: 10px;
 }
 
 .portfolio .portfolio-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.35s ease;
+    padding: 10px;
 }
 
 .portfolio .portfolio-img:hover img {

@@ -7,7 +7,6 @@ const About = () => {
   const personalInfo = content.personalInfo || [];
   const skills = content.skills || [];
   const education = content.education || [];
-  const projectTimeline = content.projectTimeline || [];
   const experience = content.experience || [];
   const aboutSummary =
     content.hero?.tagline ||
@@ -85,110 +84,81 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="horizontal-sections">
-                <div className="education padd-15">
-                  <div className="row">
-                    <div className="section-title padd-15">
-                      <h2 className="title">Education</h2>
+            <div className="row education-section">
+              <div className="section-title padd-15">
+                <h2 className="title">Education</h2>
+              </div>
+              <div className="timeline-box padd-15">
+                <div className="timeline shadow-dark">
+                  {education.map((item) => (
+                    <div key={item.id} className="timeline-item">
+                      <div className="circle-dot"></div>
+                      <h3 className="timeline-date">
+                        <FaCalendar /> {item.range}
+                      </h3>
+                      <h4 className="timeline-text">{item.title}</h4>
+                      <p className="timeline-text">{item.details}</p>
+                      {item.extra && (
+                        <h4 className="timeline-text">{item.extra}</h4>
+                      )}
+                      {item.documentUrl && (
+                        <a
+                          className="attachment-link"
+                          href={item.documentUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Result Sheet
+                        </a>
+                      )}
                     </div>
-                    <div className="timeline-box padd-15">
-                      <div className="timeline shadow-dark">
-                        {education.map((item) => (
-                          <div key={item.id} className="timeline-item">
-                            <div className="circle-dot"></div>
-                            <h3 className="timeline-date">
-                              <FaCalendar /> {item.range}
-                            </h3>
-                            <h4 className="timeline-text">{item.title}</h4>
-                            <p className="timeline-text">{item.details}</p>
-                            {item.extra && (
-                              <h4 className="timeline-text">{item.extra}</h4>
-                            )}
-                            {item.documentUrl && (
-                              <a
-                                className="attachment-link"
-                                href={item.documentUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                View Result Sheet
-                              </a>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="projects padd-15">
-                  <div className="row">
-                    <div className="section-title padd-15">
-                      <h2 className="title">Projects</h2>
-                    </div>
-                    <div className="timeline-box padd-15">
-                      <div className="timeline shadow-dark">
-                        {projectTimeline.map((project) => (
-                          <div key={project.id} className="timeline-item">
-                            <div className="circle-dot"></div>
-                            <h3 className="timeline-date">
-                              <FaCalendar /> {project.date}
-                            </h3>
-                            <h4 className="timeline-text">{project.title}</h4>
-                            <p className="timeline-text">
-                              {project.description}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-              <div className="row">
-                <div className="section-title padd-15">
-                  <h2 className="title">Experience</h2>
-                </div>
-                <div className="timeline-box padd-15">
-                  <div className="timeline shadow-dark">
-                    {experience.map((item) => (
-                      <div key={item.id} className="timeline-item">
-                        <div className="circle-dot"></div>
-                        <h3 className="timeline-date">
-                          <FaCalendar /> {item.range}
-                        </h3>
-                        <h4 className="timeline-text-company">
-                          {item.company} - {item.location} ({item.mode})
-                        </h4>
-                        <h4 className="timeline-text">{item.title}</h4>
-                        <p className="timeline-text">{item.details}</p>
-                        {(item.certificateUrl || item.offerLetterUrl) && (
-                          <div className="attachment-links">
-                            {item.certificateUrl && (
-                              <a
-                                className="attachment-link"
-                                href={item.certificateUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Certificate
-                              </a>
-                            )}
-                            {item.offerLetterUrl && (
-                              <a
-                                className="attachment-link"
-                                href={item.offerLetterUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Offer Letter
-                              </a>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+            </div>
+            <div className="row">
+              <div className="section-title padd-15">
+                <h2 className="title">Experience</h2>
+              </div>
+              <div className="timeline-box padd-15">
+                <div className="timeline shadow-dark">
+                  {experience.map((item) => (
+                    <div key={item.id} className="timeline-item">
+                      <div className="circle-dot"></div>
+                      <h3 className="timeline-date">
+                        <FaCalendar /> {item.range}
+                      </h3>
+                      <h4 className="timeline-text-company">
+                        {item.company} - {item.location} ({item.mode})
+                      </h4>
+                      <h4 className="timeline-text">{item.title}</h4>
+                      <p className="timeline-text">{item.details}</p>
+                      {(item.certificateUrl || item.offerLetterUrl) && (
+                        <div className="attachment-links">
+                          {item.certificateUrl && (
+                            <a
+                              className="attachment-link"
+                              href={item.certificateUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Certificate
+                            </a>
+                          )}
+                          {item.offerLetterUrl && (
+                            <a
+                              className="attachment-link"
+                              href={item.offerLetterUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Offer Letter
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
