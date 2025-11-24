@@ -54,6 +54,11 @@ const sectionConfigs = {
       { name: "range", label: "Date Range", type: "text" },
       { name: "details", label: "Description", type: "textarea" },
       { name: "extra", label: "Extra (optional)", type: "text" },
+      {
+        name: "documentUrl",
+        label: "Result Sheet URL",
+        type: "text",
+      },
     ],
   },
   projectTimeline: {
@@ -77,6 +82,16 @@ const sectionConfigs = {
       { name: "mode", label: "Mode (Remote/Onsite)", type: "text" },
       { name: "range", label: "Date Range", type: "text" },
       { name: "details", label: "Description", type: "textarea" },
+      {
+        name: "certificateUrl",
+        label: "Certificate URL",
+        type: "text",
+      },
+      {
+        name: "offerLetterUrl",
+        label: "Offer Letter URL",
+        type: "text",
+      },
     ],
   },
   portfolio: {
@@ -442,8 +457,14 @@ const AdminDashboard = () => {
 
   const toastElement = toast ? (
     <div className={`admin-toast ${toast.type}`}>
-      <span className="toast-dot" />
-      {toast.message}
+      <span className={`toast-icon ${toast.type}`}>
+        {toast.type === "success"
+          ? "✓"
+          : toast.type === "error"
+          ? "✕"
+          : "ℹ"}
+      </span>
+      <span>{toast.message}</span>
     </div>
   ) : null;
 
@@ -716,7 +737,11 @@ const AdminDashboard = () => {
                     normalized.includes("image") ||
                     normalized.includes("screenshot") ||
                     normalized.includes("logo") ||
-                    normalized.includes("resume");
+                    normalized.includes("resume") ||
+                    normalized.includes("document") ||
+                    normalized.includes("sheet") ||
+                    normalized.includes("certificate") ||
+                    normalized.includes("offer");
 
                   let control = null;
 

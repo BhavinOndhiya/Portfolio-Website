@@ -105,6 +105,16 @@ const About = () => {
                             {item.extra && (
                               <h4 className="timeline-text">{item.extra}</h4>
                             )}
+                        {item.documentUrl && (
+                          <a
+                            className="attachment-link"
+                            href={item.documentUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Result Sheet
+                          </a>
+                        )}
                           </div>
                         ))}
                       </div>
@@ -152,6 +162,30 @@ const About = () => {
                         </h4>
                         <h4 className="timeline-text">{item.title}</h4>
                         <p className="timeline-text">{item.details}</p>
+                        {(item.certificateUrl || item.offerLetterUrl) && (
+                          <div className="attachment-links">
+                            {item.certificateUrl && (
+                              <a
+                                className="attachment-link"
+                                href={item.certificateUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Certificate
+                              </a>
+                            )}
+                            {item.offerLetterUrl && (
+                              <a
+                                className="attachment-link"
+                                href={item.offerLetterUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Offer Letter
+                              </a>
+                            )}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>

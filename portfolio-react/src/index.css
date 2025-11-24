@@ -514,6 +514,32 @@ h3.my-profession {
     padding-bottom: 50px;
 }
 
+.attachment-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.attachment-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--skin-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.attachment-link::before {
+    content: "↗";
+    font-size: 0.75rem;
+}
+
+.attachment-link:hover {
+    text-decoration: underline;
+}
+
 .about .about-content .timeline .timeline-item:last-child {
     padding-bottom: 0;
 }

@@ -64,21 +64,24 @@
       "institution": "CHARUSAT University, Nadiad",
       "range": "2021 - 2025",
       "details": "I am currently pursuing my B-Tech in Computer Engineering.",
-      "extra": "CGPA - 8.89"
+      "extra": "CGPA - 8.89",
+      "documentUrl": ""
     },
     {
       "id": "edu-2",
       "title": "Shakti Secondary School Rajkot",
       "institution": "Science Stream",
       "range": "2019 - 2021",
-      "details": "I successfully completed my 11th and 12th grade in the science stream, demonstrating dedicated efforts and achieving exceptional results."
+      "details": "I successfully completed my 11th and 12th grade in the science stream, demonstrating dedicated efforts and achieving exceptional results.",
+      "documentUrl": ""
     },
     {
       "id": "edu-3",
       "title": "St Mary's School",
       "institution": "Gondal",
       "range": "2008 - 2019",
-      "details": "I completed my primary and high school education in St. Mary's School, Gondal."
+      "details": "I completed my primary and high school education in St. Mary's School, Gondal.",
+      "documentUrl": ""
     }
   ],
   "projectTimeline": [
@@ -109,7 +112,9 @@
       "mode": "Onsite",
       "range": "Jun 2024 - Present",
       "title": "Junior Software Developer",
-      "details": "Working on advanced AI-driven systems focusing on RAG pipelines and exploring Agentic RAG architectures using AWS cloud services and Langflow."
+      "details": "Working on advanced AI-driven systems focusing on RAG pipelines and exploring Agentic RAG architectures using AWS cloud services and Langflow.",
+      "certificateUrl": "",
+      "offerLetterUrl": ""
     },
     {
       "id": "exp-2",
@@ -118,7 +123,9 @@
       "mode": "Onsite",
       "range": "Sep 2023 - Jun 2024",
       "title": "Software Developer Intern",
-      "details": "Developed an AI chatbot using AWS Lex, integrating AWS Lambda for backend logic to fetch dynamic data and improve conversational accuracy."
+      "details": "Developed an AI chatbot using AWS Lex, integrating AWS Lambda for backend logic to fetch dynamic data and improve conversational accuracy.",
+      "certificateUrl": "",
+      "offerLetterUrl": ""
     },
     {
       "id": "exp-3",
@@ -127,7 +134,9 @@
       "mode": "Remote",
       "range": "Nov 2023 - May 2024",
       "title": "Full Stack Developer Intern",
-      "details": "Built full-stack web applications using React, Node.js, and MongoDB. Implemented authentication, API integrations, and responsive UI with Tailwind CSS."
+      "details": "Built full-stack web applications using React, Node.js, and MongoDB. Implemented authentication, API integrations, and responsive UI with Tailwind CSS.",
+      "certificateUrl": "",
+      "offerLetterUrl": ""
     },
     {
       "id": "exp-4",
@@ -136,7 +145,9 @@
       "mode": "Remote",
       "range": "May 2023 - Oct 2023",
       "title": "Back End Developer Intern",
-      "details": "Focused on backend development using Node.js and Express. Designed RESTful APIs, handled database queries, and optimized performance for data-intensive modules."
+      "details": "Focused on backend development using Node.js and Express. Designed RESTful APIs, handled database queries, and optimized performance for data-intensive modules.",
+      "certificateUrl": "",
+      "offerLetterUrl": ""
     },
     {
       "id": "exp-5",
@@ -145,7 +156,9 @@
       "mode": "Remote",
       "range": "Mar 2023 - Apr 2023",
       "title": "Full Stack Developer Intern",
-      "details": "Created responsive web pages and interactive UI components using HTML, CSS, and JavaScript. Improved website performance and accessibility."
+      "details": "Created responsive web pages and interactive UI components using HTML, CSS, and JavaScript. Improved website performance and accessibility.",
+      "certificateUrl": "",
+      "offerLetterUrl": ""
     }
   ],
   "portfolio": [
