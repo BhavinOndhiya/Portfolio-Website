@@ -1,0 +1,201 @@
+{
+  "hero": {
+    "name": "Bhavin Ondhiya",
+    "roles": [
+      "Software Developer",
+      "Web Developer",
+      "Backend Developer",
+      "ML Enthusiast",
+      "DSA Lover"
+    ],
+    "tagline": "ML and AI enthusiast, a dedicated software engineer who loves to work towards projects that make a bigger impact in society. You will also find me playing with a guitar on some days and exploring places. Learning in the process is my belief.",
+    "resumeUrl": "/BhavinOndhiya-july-2025.pdf",
+    "imageUrl": "/bhavin.jpg",
+    "hireMeTarget": "#contact"
+  },
+  "personalInfo": [
+    { "id": "info-1", "label": "Birthday", "value": "29 Jan 2003" },
+    { "id": "info-2", "label": "Age", "value": "23" },
+    { "id": "info-3", "label": "Website", "value": "-" },
+    { "id": "info-4", "label": "Email", "value": "bhavinondhiya0@gmail.com" },
+    { "id": "info-5", "label": "Degree", "value": "CE" },
+    { "id": "info-6", "label": "Phone", "value": "+91 99984 89403" },
+    { "id": "info-7", "label": "City", "value": "Surat" },
+    { "id": "info-8", "label": "Freelance", "value": "Available" }
+  ],
+  "skills": [
+    { "id": "skill-1", "name": "JS", "percent": 90 },
+    { "id": "skill-2", "name": "Docker", "percent": 50 },
+    { "id": "skill-3", "name": "NextJS", "percent": 90 },
+    { "id": "skill-4", "name": "GraphQL", "percent": 70 },
+    { "id": "skill-5", "name": "AWS", "percent": 45 },
+    { "id": "skill-6", "name": "NodeJS", "percent": 90 }
+  ],
+  "services": [
+    {
+      "id": "service-1",
+      "iconKey": "wallet",
+      "title": "Web development",
+      "description": "I can create any website using HTML, CSS, ReactJS for frontend and PHP, NodeJS in backend Along with GraphDB(NEO4j)."
+    },
+    {
+      "id": "service-2",
+      "iconKey": "coins",
+      "title": "Mern Stack development",
+      "description": "Proficient in Node.js, with expertise in building scalable and performant applications using asynchronous programming, event-driven architecture, and a strong command of core modules and npm packages."
+    },
+    {
+      "id": "service-3",
+      "iconKey": "money",
+      "title": "Problem Solving",
+      "description": "I would be able to provide a solution for real-life problems using in-depth concepts of Data Structure and Algorithm."
+    },
+    {
+      "id": "service-4",
+      "iconKey": "gem",
+      "title": "Machine Learning",
+      "description": "Learning Phase is going on."
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "title": "Undergraduate in Computer Engineering",
+      "institution": "CHARUSAT University, Nadiad",
+      "range": "2021 - 2025",
+      "details": "I am currently pursuing my B-Tech in Computer Engineering.",
+      "extra": "CGPA - 8.89"
+    },
+    {
+      "id": "edu-2",
+      "title": "Shakti Secondary School Rajkot",
+      "institution": "Science Stream",
+      "range": "2019 - 2021",
+      "details": "I successfully completed my 11th and 12th grade in the science stream, demonstrating dedicated efforts and achieving exceptional results."
+    },
+    {
+      "id": "edu-3",
+      "title": "St Mary's School",
+      "institution": "Gondal",
+      "range": "2008 - 2019",
+      "details": "I completed my primary and high school education in St. Mary's School, Gondal."
+    }
+  ],
+  "projectTimeline": [
+    {
+      "id": "projtl-1",
+      "date": "27 September, 2024",
+      "title": "CodeInsights",
+      "description": "Developed CodeInsights, a coding platform where any organization can design their own contest for coding round and aptitude exam along with Proctoring using NodeJS, RabbitMQ, and AI."
+    },
+    {
+      "id": "projtl-2",
+      "date": "13 November, 2023",
+      "title": "Blog Byte",
+      "description": "Created my own Next.js blog site where I post about my learnings in Next.js and React.js."
+    },
+    {
+      "id": "projtl-3",
+      "date": "29 January, 2025",
+      "title": "MCC Chatbot",
+      "description": "Showcasing proficiency in full-stack development, cloud-based services, and complex system design."
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "ScaleCapacity",
+      "location": "Surat, India",
+      "mode": "Onsite",
+      "range": "Jun 2024 - Present",
+      "title": "Junior Software Developer",
+      "details": "Working on advanced AI-driven systems focusing on RAG pipelines and exploring Agentic RAG architectures using AWS cloud services and Langflow."
+    },
+    {
+      "id": "exp-2",
+      "company": "ScaleCapacity",
+      "location": "Surat, India",
+      "mode": "Onsite",
+      "range": "Sep 2023 - Jun 2024",
+      "title": "Software Developer Intern",
+      "details": "Developed an AI chatbot using AWS Lex, integrating AWS Lambda for backend logic to fetch dynamic data and improve conversational accuracy."
+    },
+    {
+      "id": "exp-3",
+      "company": "GraphBud Technologies Private Limited",
+      "location": "Pollachi, Tamil Nadu, India",
+      "mode": "Remote",
+      "range": "Nov 2023 - May 2024",
+      "title": "Full Stack Developer Intern",
+      "details": "Built full-stack web applications using React, Node.js, and MongoDB. Implemented authentication, API integrations, and responsive UI with Tailwind CSS."
+    },
+    {
+      "id": "exp-4",
+      "company": "GraphBud Technologies Private Limited",
+      "location": "Pollachi, Tamil Nadu, India",
+      "mode": "Remote",
+      "range": "May 2023 - Oct 2023",
+      "title": "Back End Developer Intern",
+      "details": "Focused on backend development using Node.js and Express. Designed RESTful APIs, handled database queries, and optimized performance for data-intensive modules."
+    },
+    {
+      "id": "exp-5",
+      "company": "Oasis Infobyte",
+      "location": "Remote",
+      "mode": "Remote",
+      "range": "Mar 2023 - Apr 2023",
+      "title": "Full Stack Developer Intern",
+      "details": "Created responsive web pages and interactive UI components using HTML, CSS, and JavaScript. Improved website performance and accessibility."
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "portfolio-1",
+      "category": "Internship - Project",
+      "title": "DataGrafico",
+      "imageUrl": "/DataGrafico.png",
+      "link": "https://github.com/BhavinOndhiya/DataGrafico"
+    },
+    {
+      "id": "portfolio-2",
+      "category": "Hackathon - Project",
+      "title": "Code Insights",
+      "imageUrl": "/codeinsights.JPG",
+      "link": "https://github.com/BhavinOndhiya/CodeInsgihts"
+    },
+    {
+      "id": "portfolio-3",
+      "category": "My Blog Site",
+      "title": "Blog Byte",
+      "imageUrl": "/Screenshot 2024-02-25 150804.png",
+      "link": "https://blogbyte.vercel.app/"
+    }
+  ],
+  "contactMethods": [
+    {
+      "id": "contact-1",
+      "type": "phone",
+      "label": "Call Us On",
+      "value": "+91 99782 75972"
+    },
+    {
+      "id": "contact-2",
+      "type": "location",
+      "label": "Office",
+      "value": "Surat"
+    },
+    {
+      "id": "contact-3",
+      "type": "email",
+      "label": "Email",
+      "value": "bhavinondhiya0@gmail.com"
+    },
+    {
+      "id": "contact-4",
+      "type": "website",
+      "label": "Website",
+      "value": "https://ondhiyabhavin.netlify.app/"
+    }
+  ]
+}
+
