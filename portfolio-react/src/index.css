@@ -301,6 +301,15 @@ html {
     max-width: 60%;
 }
 
+.home .home-info .btn {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.home .home-info .btn:last-of-type {
+    margin-right: 0;
+}
+
 h3.hello {
     font-size: 28px;
     max-width: 15px 0;
@@ -602,11 +611,24 @@ h3.my-profession {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    align-items: stretch;
 }
 
 .horizontal-sections > div {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-width: 300px;
+}
+
+.horizontal-sections > div .timeline-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-sections > div .timeline {
+    flex: 1;
 }
 
 .sub-experience {
@@ -663,7 +685,8 @@ h3.my-profession {
 
 .service .service-item .service-item-inner:hover .icon .fa,
 .service .service-item .service-item-inner:hover .icon svg {
-    font-size: 25px;
+    font-size: 40px;
+    transform: scale(1.05);
     color: #ffffff;
 }
 
@@ -711,7 +734,7 @@ h3.my-profession {
 .portfolio .portfolio-img {
     position: relative;
     width: 100%;
-    height: 240px;
+    height: 320px;
     overflow: hidden;
 }
 
