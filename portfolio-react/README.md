@@ -61,6 +61,25 @@ those files without manually re-uploading them:
 The script downloads each portfolio image, resizes/crops it to 1200×900 using Sharp,
 uploads the new asset to your S3 bucket, and updates the stored content document.
 
+#### Run directly on Vercel
+
+Deployments can trigger the same logic without a local `.env` via the authenticated
+endpoint:
+
+```
+GET https://<app>.vercel.app/api/admin/reprocessPortfolio?dryRun=1&token=<JWT>
+POST https://<app>.vercel.app/api/admin/reprocessPortfolio
+Authorization: Bearer <JWT>
+{
+  "dryRun": false,
+  "force": false
+}
+```
+
+Use the JWT returned from `/api/admin/login`. `dryRun` defaults to `true` for `GET`
+requests to minimize accidental writes. Add `token=` in the query string only for
+manual one-off runs—prefer the `Authorization` header whenever possible.
+
 ## Project Structure
 
 ```
