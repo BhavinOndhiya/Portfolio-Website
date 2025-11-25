@@ -46,10 +46,37 @@ const getOrCreateContentDoc = async () => {
   return doc;
 };
 
+const isAbsoluteUrl = (value = "") => /^https?:\/\//i.test(value);
+
+const resolveImageUrl = (imageUrl) => {
+  if (!imageUrl) {
+    return null;
+  }
+  if (isAbsoluteUrl(imageUrl)) {
+    return imageUrl;
+  }
+  const base =
+    process.env.PUBLIC_APP_URL ||
+    process.env.PUBLIC_IMAGE_BASE_URL ||
+    process.env.PUBLIC_SITE_URL;
+  if (!base) {
+    throw new Error(
+      `Relative image path "${imageUrl}" encountered but PUBLIC_APP_URL (or PUBLIC_IMAGE_BASE_URL / PUBLIC_SITE_URL) is not configured.`
+    );
+  }
+  const normalizedBase = base.replace(/\/$/, "");
+  const normalizedPath = imageUrl.replace(/^\//, "");
+  return `${normalizedBase}/${normalizedPath}`;
+};
+
 const downloadImageBuffer = async (url) => {
-  const response = await fetch(url);
+  const absoluteUrl = resolveImageUrl(url);
+  if (!absoluteUrl) {
+    throw new Error("Image URL is missing");
+  }
+  const response = await fetch(absoluteUrl);
   if (!response.ok) {
-    throw new Error(`Failed to download ${url} (${response.status})`);
+    throw new Error(`Failed to download ${absoluteUrl} (${response.status})`);
   }
   const arrayBuffer = await response.arrayBuffer();
   return Buffer.from(arrayBuffer);
@@ -101,8 +128,8 @@ const processProject = async ({
 
   const processedBuffer = await sharp(sourceBuffer)
     .resize(options.width, options.height, {
-      fit: "cover",
-      position: "centre",
+      fit: "contain",
+      background: { r: 255, g: 255, b: 255, alpha: 1 },
     })
     .jpeg({
       quality: options.quality,

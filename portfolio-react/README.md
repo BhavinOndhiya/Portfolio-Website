@@ -51,6 +51,7 @@ If you imported projects before the admin image pipeline existed, you can normal
 those files without manually re-uploading them:
 
 1. Ensure `.env` includes `MONGODB_URI`, `AWS_*` credentials, and `AWS_PUBLIC_BASE_URL`.
+   - If any project image uses a relative path (e.g. `/codeinsights.JPG`), also set `PUBLIC_APP_URL` to your deployed origin (for example `https://bhavinondhiya.vercel.app`).
 2. Run the script (dry-run first for safety):
    ```bash
    npm run reprocess:portfolio -- --dry-run

@@ -43,26 +43,12 @@ export const processImage = async (file, options = {}) => {
           canvas.width = width;
           canvas.height = height;
 
-          // Calculate scaling to fill the canvas (crop from center)
-          const imgAspect = img.width / img.height;
-          const targetAspect = width / height;
-
-          let drawWidth,
-            drawHeight,
-            offsetX = 0,
-            offsetY = 0;
-
-          if (imgAspect > targetAspect) {
-            // Image is wider - fit to height and crop width
-            drawHeight = height;
-            drawWidth = height * imgAspect;
-            offsetX = (width - drawWidth) / 2;
-          } else {
-            // Image is taller - fit to width and crop height
-            drawWidth = width;
-            drawHeight = width / imgAspect;
-            offsetY = (height - drawHeight) / 2;
-          }
+          // Calculate scaling to ensure the whole image stays visible (letterbox)
+          const scale = Math.min(width / img.width, height / img.height);
+          const drawWidth = img.width * scale;
+          const drawHeight = img.height * scale;
+          const offsetX = (width - drawWidth) / 2;
+          const offsetY = (height - drawHeight) / 2;
 
           // Fill background with white (for transparency in PNGs)
           ctx.fillStyle = "#FFFFFF";
