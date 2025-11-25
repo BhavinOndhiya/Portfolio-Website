@@ -207,7 +207,8 @@
       "id": "contact-4",
       "type": "website",
       "label": "Website",
-      "value": "https://ondhiyabhavin.netlify.app/"
+      "value": "https://ondhiyabhavin.netlify.app/",
+      "displayValue": "Visit Portfolio"
     }
   ]
 }

@@ -127,7 +127,13 @@ const sectionConfigs = {
         ],
       },
       { name: "label", label: "Label", type: "text" },
-      { name: "value", label: "Value", type: "text" },
+      { name: "value", label: "Destination / Value", type: "text" },
+      {
+        name: "displayValue",
+        label: "Link Text (optional)",
+        type: "text",
+        required: false,
+      },
     ],
   },
 };
@@ -780,6 +786,7 @@ const AdminDashboard = () => {
             <div className="editor-grid">
               <form onSubmit={handleEntrySubmit} className="admin-form">
                 {currentConfig.fields.map((field) => {
+                  const isRequired = field.required !== false;
                   const normalized = field.name.toLowerCase();
                   const supportsUpload =
                     normalized.includes("image") ||
@@ -799,7 +806,7 @@ const AdminDashboard = () => {
                         name={field.name}
                         value={formState[field.name]}
                         onChange={handleFieldChange}
-                        required
+                        required={isRequired}
                       />
                     );
                   } else if (field.type === "select") {
@@ -808,7 +815,7 @@ const AdminDashboard = () => {
                         name={field.name}
                         value={formState[field.name]}
                         onChange={handleFieldChange}
-                        required
+                        required={isRequired}
                       >
                         <option value="">Select</option>
                         {field.options.map((option) => (
@@ -825,7 +832,7 @@ const AdminDashboard = () => {
                         name={field.name}
                         value={formState[field.name]}
                         onChange={handleFieldChange}
-                        required
+                        required={isRequired}
                       />
                     );
                   }
