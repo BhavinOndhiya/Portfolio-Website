@@ -43,6 +43,24 @@ To create a production build:
 npm run build
 ```
 
+## Utilities
+
+### Reprocess legacy portfolio images
+
+If you imported projects before the admin image pipeline existed, you can normalize
+those files without manually re-uploading them:
+
+1. Ensure `.env` includes `MONGODB_URI`, `AWS_*` credentials, and `AWS_PUBLIC_BASE_URL`.
+2. Run the script (dry-run first for safety):
+   ```bash
+   npm run reprocess:portfolio -- --dry-run
+   npm run reprocess:portfolio
+   ```
+3. Use `--force` to reprocess entries already marked as standardized.
+
+The script downloads each portfolio image, resizes/crops it to 1200×900 using Sharp,
+uploads the new asset to your S3 bucket, and updates the stored content document.
+
 ## Project Structure
 
 ```

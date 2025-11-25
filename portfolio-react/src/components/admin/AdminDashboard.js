@@ -2,6 +2,11 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../../context/ContentContext";
 import { ADMIN_API_BASE_URL } from "../../config";
+import {
+  processImage,
+  isImageFile,
+  imageDimensions,
+} from "../../utils/imageProcessor";
 
 const TOKEN_KEY = "portfolio-admin-token";
 
@@ -220,6 +225,9 @@ const AdminDashboard = () => {
         entry: editingId ? "Updating entry..." : "Creating entry...",
         delete: "Removing entry...",
         reset: "Restoring defaults...",
+        processing: uploadContext?.label
+          ? `Processing ${uploadContext.label}...`
+          : "Processing image...",
         upload: uploadContext?.label
           ? `Uploading ${uploadContext.label}...`
           : "Uploading file...",
@@ -233,15 +241,53 @@ const AdminDashboard = () => {
     if (!file || !uploadContext) {
       return;
     }
+
     setPendingAction("upload");
+    let fileToUpload = file;
+    let contentType = file.type || "application/octet-stream";
+
     try {
+      // Process image files to standardize dimensions
+      if (isImageFile(file)) {
+        setPendingAction("processing");
+
+        // Determine image type based on upload context and active section
+        let dimensions = imageDimensions.portfolio; // default
+        const labelLower = uploadContext.label?.toLowerCase() || "";
+        const fieldName = uploadContext.fieldName?.toLowerCase() || "";
+        const sectionName = activeSection?.toLowerCase() || "";
+
+        if (labelLower.includes("hero") || fieldName.includes("hero")) {
+          dimensions = imageDimensions.hero;
+        } else if (
+          sectionName === "portfolio" ||
+          labelLower.includes("portfolio") ||
+          labelLower.includes("project") ||
+          labelLower.includes("image url") ||
+          fieldName.includes("imageurl")
+        ) {
+          dimensions = imageDimensions.portfolio;
+        }
+
+        // Process the image
+        fileToUpload = await processImage(file, {
+          width: dimensions.width,
+          height: dimensions.height,
+          quality: 0.9,
+          format: "jpeg",
+        });
+        contentType = fileToUpload.type;
+
+        setPendingAction("upload");
+      }
+
       const { uploadUrl, fileUrl } = await authenticatedRequest(
         "/api/uploads/sign",
         {
           method: "POST",
           body: JSON.stringify({
-            filename: file.name,
-            contentType: file.type || "application/octet-stream",
+            filename: fileToUpload.name,
+            contentType: contentType,
           }),
         }
       );
@@ -249,9 +295,9 @@ const AdminDashboard = () => {
       const response = await fetch(uploadUrl, {
         method: "PUT",
         headers: {
-          "Content-Type": file.type || "application/octet-stream",
+          "Content-Type": contentType,
         },
-        body: file,
+        body: fileToUpload,
       });
 
       if (!response.ok) {
@@ -259,7 +305,13 @@ const AdminDashboard = () => {
       }
 
       uploadContext.onSuccess(fileUrl);
-      showToast("success", `${uploadContext.label || "File"} uploaded`);
+      const processedMsg = isImageFile(file)
+        ? " (processed and standardized)"
+        : "";
+      showToast(
+        "success",
+        `${uploadContext.label || "File"} uploaded${processedMsg}`
+      );
     } catch (error) {
       showToast("error", error.message);
     } finally {
@@ -790,6 +842,7 @@ const AdminDashboard = () => {
                             onClick={() =>
                               triggerUpload({
                                 label: field.label.toLowerCase(),
+                                fieldName: field.name,
                                 onSuccess: (url) =>
                                   setFormState((prev) => ({
                                     ...prev,
@@ -801,7 +854,9 @@ const AdminDashboard = () => {
                             Upload file
                           </button>
                           <span className="hint-text">
-                            We will fill the URL automatically
+                            {normalized.includes("image")
+                              ? "Images will be automatically resized to 1200x900px"
+                              : "We will fill the URL automatically"}
                           </span>
                         </div>
                       )}
