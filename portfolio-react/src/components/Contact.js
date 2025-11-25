@@ -7,24 +7,40 @@ const Contact = () => {
   const methods = content.contactMethods || [];
 
   const resolveValue = (method) => {
+    const linkClass = "contact-link";
     if (method.type === "email") {
       return (
-        <a href={`mailto:${method.value}`} rel="noopener noreferrer">
+        <a
+          className={linkClass}
+          href={`mailto:${method.value}`}
+          rel="noopener noreferrer"
+        >
           {method.value}
         </a>
       );
     }
     if (method.type === "phone") {
       return (
-        <a href={`tel:${method.value}`} rel="noopener noreferrer">
+        <a
+          className={linkClass}
+          href={`tel:${method.value}`}
+          rel="noopener noreferrer"
+        >
           {method.value}
         </a>
       );
     }
     if (method.type === "website") {
+      const label =
+        method.displayValue || method.shortLabel || method.label || "Website";
       return (
-        <a href={method.value} target="_blank" rel="noopener noreferrer">
-          {method.value}
+        <a
+          className={linkClass}
+          href={method.value}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {label}
         </a>
       );
     }
